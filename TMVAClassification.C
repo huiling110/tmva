@@ -169,6 +169,7 @@ int TMVAClassification( TString myMethodList = "" )
 
    if (gSystem->AccessPathName( fname ))  // file does not exist in local directory
       gSystem->Exec("curl -O http://root.cern.ch/files/tmva_class_example.root");
+   //root macro can execute shell command?
 
    TFile *input = TFile::Open( fname );
 
@@ -196,7 +197,7 @@ int TMVAClassification( TString myMethodList = "" )
    TMVA::Factory *factory = new TMVA::Factory( "TMVAClassification", outputFile,
                                                "!V:!Silent:Color:DrawProgressBar:Transformations=I;D;P;G,D:AnalysisType=Classification" );
 
-   TMVA::DataLoader *dataloader=new TMVA::DataLoader("dataset");
+   TMVA::DataLoader *dataloader=new TMVA::DataLoader("dataset");//dataset is the leading directory in output root file
    // If you wish to modify default settings
    // (please check "src/Config.h" to see all available global options)
    //
@@ -206,8 +207,8 @@ int TMVAClassification( TString myMethodList = "" )
    // Define the input variables that shall be used for the MVA training
    // note that you may also use variable expressions, such as: "3*var1/var2*abs(var3)"
    // [all types of expressions that can also be parsed by TTree::Draw( "expression" )]
-   dataloader->AddVariable( "myvar1 := var1+var2", 'F' );
-   dataloader->AddVariable( "myvar2 := var1-var2", "Expression 2", "", 'F' );
+   dataloader->AddVariable( "myvar1 := var1+var2", 'F' );///Note that ’F’ indicates any floating point type, i.e., float and double.
+   dataloader->AddVariable( "myvar2 := var1-var2", "Expression 2", "", 'F' );//’I’ stands for integer, including int, short, char, and the corresponding unsigned types
    dataloader->AddVariable( "var3",                "Variable 3", "units", 'F' );
    dataloader->AddVariable( "var4",                "Variable 4", "units", 'F' );
 
@@ -289,6 +290,7 @@ int TMVAClassification( TString myMethodList = "" )
    //         "NSigTrain=3000:NBkgTrain=3000:NSigTest=3000:NBkgTest=3000:SplitMode=Random:!V" );
    dataloader->PrepareTrainingAndTestTree( mycuts, mycutb,
                                         "nTrain_Signal=1000:nTrain_Background=1000:SplitMode=Random:NormMode=NumEvents:!V" );
+    ///If nTrain Signal=0 and nTest Signal=0, the signal sample is split in half for training and testing
 
    // ### Book MVA methods
    //
