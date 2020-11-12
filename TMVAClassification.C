@@ -300,7 +300,7 @@ int TMVAClassification( TString myMethodList = "" )
    // "...:CutRangeMin[2]=-1:CutRangeMax[2]=1"...", where [2] is the third input variable
 
    // Cut optimisation
-   if (Use["Cuts"])
+   if (Use["Cuts"])//use is the map
       factory->BookMethod( dataloader, TMVA::Types::kCuts, "Cuts",
                            "!H:!V:FitMethod=MC:EffSel:SampleSize=200000:VarProp=FSmart" );
 
