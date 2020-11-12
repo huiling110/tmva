@@ -24,6 +24,7 @@
 ///
 ///     make
 ///     ./TMVAClassification <Methods>
+//?how can we use make to complile?
 ///
 /// where: `<Methods> = "method1 method2"` are the TMVA classifier names
 /// example:
