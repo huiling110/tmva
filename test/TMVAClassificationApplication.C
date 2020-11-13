@@ -263,7 +263,8 @@ void TMVAClassificationApplication( TString myMethodList = "" )
 
    std::cout << "--- Processing: " << theTree->GetEntries() << " events" << std::endl;
    TStopwatch sw;
-   sw.Start();
+   sw.Start();//good way to calculate run time
+
    for (Long64_t ievt=0; ievt<theTree->GetEntries();ievt++) {
 
       if (ievt%1000 == 0) std::cout << "--- ... Processing event: " << ievt << std::endl;
