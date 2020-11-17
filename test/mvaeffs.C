@@ -547,7 +547,8 @@ void StatDialogMVAEffs::DrawHistograms()
       const Bool_t Save_Images = kTRUE;
 
       if (Save_Images) {
-         TMVAGlob::imgconv( c, Form("plots/mvaeffs_%s", info->methodTitle.Data()) ); 
+         // TMVAGlob::imgconv( c, Form("plots/mvaeffs_%s", info->methodTitle.Data()) );
+         TMVAGlob::imgconv( c, Form("plots_1tau0l/mvaeffs_%s", info->methodTitle.Data()) ); 
       }
       countCanvas++;
    }
@@ -604,8 +605,10 @@ void StatDialogMVAEffs::PrintResults( const MethodInfo* info )
    }
 }
 
-void mvaeffs( TString fin = "TMVA.root", 
-              Bool_t useTMVAStyle = kTRUE, TString formula="S/sqrt(S+B)" )
+// void mvaeffs( TString fin = "TMVA.root",
+void mvaeffs( TString fin = "TMVA_1Tau0L.root", 
+              // Bool_t useTMVAStyle = kTRUE, TString formula="S/sqrt(S+B)" )
+              Bool_t useTMVAStyle = kTRUE, TString formula="S/sqrt(B)" )
 {
    TMVAGlob::Initialize( useTMVAStyle );
 
