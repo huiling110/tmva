@@ -161,7 +161,8 @@ void TMVAClassification( TString myMethodList = "" )
 
    // Create a ROOT output file where TMVA will store ntuples, histograms, etc.
    // TString outfileName( "TMVA.root" );
-   TString outfileName( "TMVA_study.root" );
+   // TString outfileName( "TMVA_study.root" );
+   TString outfileName( "TMVA_1Tau0L.root" );
    TFile* outputFile = TFile::Open( outfileName, "RECREATE" );
 
    // Create the factory object. Later you can choose the methods
@@ -180,41 +181,60 @@ void TMVAClassification( TString myMethodList = "" )
    // If you wish to modify default settings
    // (please check "src/Config.h" to see all available global options)
    //    (TMVA::gConfig().GetVariablePlotting()).fTimesRMS = 8.0;
-      (TMVA::gConfig().GetIONames()).fWeightFileDir = "myWeightDirectory";
+      // (TMVA::gConfig().GetIONames()).fWeightFileDir = "myWeightDirectory";
+      (TMVA::gConfig().GetIONames()).fWeightFileDir = "myWeightDirectory_1tau0l";
 
    // Define the input variables that shall be used for the MVA training
    // note that you may also use variable expressions, such as: "3*var1/var2*abs(var3)"
    // [all types of expressions that can also be parsed by TTree::Draw( "expression" )]
-   factory->AddVariable( "myvar1 := var1+var2", 'F' );
-   factory->AddVariable( "myvar2 := var1-var2", "Expression 2", "", 'F' );
-   factory->AddVariable( "var3",                "Variable 3", "units", 'F' );
-   factory->AddVariable( "var4",                "Variable 4", "units", 'F' );
+   // factory->AddVariable( "myvar1 := var1+var2", 'F' );
+   // factory->AddVariable( "myvar2 := var1-var2", "Expression 2", "", 'F' );
+   // factory->AddVariable( "var3",                "Variable 3", "units", 'F' );
+   // factory->AddVariable( "var4",                "Variable 4", "units", 'F' );
+    factory->AddVariable( "jetsL_8pt",                "jetsL_8pt", "units", 'F' );
+    factory->AddVariable( "jetsL_number",                "jetsL_number", "units", 'F' );
+    factory->AddVariable( "jetsL_transMass",         "jetsL_transMass"   , "units", 'F');
+    factory->AddVariable( "jetsL_HT",         "jetsL_HT"   , "units", 'F');
+    factory->AddVariable( "bjetsL_HT",         "bjetsL_HT"   , "units", 'F');
+    factory->AddVariable( "bjetsL_transMass",         "bjetsL_transMass"   , "units", 'F');
+    // factory->AddVariable( "jetsL_bscore",         "jetsL_bscore"   , "units", 'F');
 
    // You can add so-called "Spectator variables", which are not used in the MVA training,
    // but will appear in the final "TestTree" produced by TMVA. This TestTree will contain the
    // input variables, the response values of all trained MVAs, and the spectator variables
-   factory->AddSpectator( "spec1 := var1*2",  "Spectator 1", "units", 'F' );
-   factory->AddSpectator( "spec2 := var1*3",  "Spectator 2", "units", 'F' );
+   // factory->AddSpectator( "spec1 := var1*2",  "Spectator 1", "units", 'F' );
+   // factory->AddSpectator( "spec2 := var1*3",  "Spectator 2", "units", 'F' );
 
    // Read training and test data
    // (it is also possible to use ASCII format as input -> see TMVA Users Guide)
-   TString fname = "./tmva_class_example.root";
+   // TString fname = "./tmva_class_example.root";
+   TString fname_signal = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0l/NoJEC/TTTT_TuneCUETP8M2T4_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0l/NoJEC/TTJets_TuneCUETP8M2T4_13TeV-amcatnloFXFX-pythia8.root";
    
-   if (gSystem->AccessPathName( fname ))  // file does not exist in local directory
-      gSystem->Exec("curl -O http://root.cern.ch/files/tmva_class_example.root");
+   // if (gSystem->AccessPathName( fname ))  // file does not exist in local directory
+      // gSystem->Exec("curl -O http://root.cern.ch/files/tmva_class_example.root");
    
-   TFile *input = TFile::Open( fname );
+   // TFile *input = TFile::Open( fname );
+   TFile *input_signal = TFile::Open( fname_signal );
+   TFile *input_bg     = TFile::Open( fname_bg );
    
-   std::cout << "--- TMVAClassification       : Using input file: " << input->GetName() << std::endl;
+   // std::cout << "--- TMVAClassification       : Using input file: " << input->GetName() << std::endl;
+   std::cout << "--- TMVAClassification       : Using input file: " << input_signal->GetName() << std::endl;
+   std::cout << "--- TMVAClassification       : Using input file: " << input_bg->GetName() << std::endl;
    
    // --- Register the training and test trees
 
-   TTree *signal     = (TTree*)input->Get("TreeS");
-   TTree *background = (TTree*)input->Get("TreeB");
+   // TTree *signal     = (TTree*)input->Get("TreeS");
+   // TTree *background = (TTree*)input->Get("TreeB");
+   TTree *signal     = (TTree*)input_signal->Get("tree");
+   TTree *background = (TTree*)input_bg->Get("tree");
    
    // global event weights per tree (see below for setting event-wise weights)
-   Double_t signalWeight     = 1.0;
-   Double_t backgroundWeight = 1.0;
+   // Double_t signalWeight     = 1.0;
+   // Double_t backgroundWeight = 1.0;
+   Double_t LUMI = 35900;
+   Double_t signalWeight     = (LUMI*0.01197)/(1709406-704054);
+   Double_t backgroundWeight =  (LUMI*746.7)/(29509487-14335648);
    
    // You can add an arbitrary number of signal or background trees
    factory->AddSignalTree    ( signal,     signalWeight     );
@@ -262,7 +282,7 @@ void TMVAClassification( TString myMethodList = "" )
    // Set individual event weights (the variables must exist in the original TTree)
    //    for signal    : factory->SetSignalWeightExpression    ("weight1*weight2");
    //    for background: factory->SetBackgroundWeightExpression("weight1*weight2");
-   factory->SetBackgroundWeightExpression( "weight" );
+   // factory->SetBackgroundWeightExpression( "weight" );//bg tree has a weight branch
 
    // Apply additional cuts on the signal and background samples (can be different)
    TCut mycuts = ""; // for example: TCut mycuts = "abs(var1)<0.5 && abs(var2-0.5)<1";
