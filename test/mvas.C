@@ -9,10 +9,12 @@
 // (e.g. running TMVAnalysis.C).
 
 enum HistType { MVAType = 0, ProbaType = 1, RarityType = 2, CompareType = 3 };
+//?
 
 // input: - Input file (result from TMVA)
 //        - use of TMVA plotting TStyle
-void mvas( TString fin = "TMVA.root", HistType htype = MVAType, Bool_t useTMVAStyle = kTRUE )
+// void mvas( TString fin = "TMVA.root", HistType htype = MVAType, Bool_t useTMVAStyle = kTRUE )
+void mvas( TString fin = "TMVA_1Tau0L.root", HistType htype = MVAType, Bool_t useTMVAStyle = kTRUE )
 {
    // set style and remove existing canvas'
    TMVAGlob::Initialize( useTMVAStyle );
@@ -34,16 +36,17 @@ void mvas( TString fin = "TMVA.root", HistType htype = MVAType, Bool_t useTMVASt
 
    // search for the right histograms in full list of keys
    TIter next(file->GetListOfKeys());
-   TKey *key(0);   
+   TKey *key(0);  
+   //?
    while ((key = (TKey*)next())) {
 
-      if (!TString(key->GetName()).BeginsWith("Method_")) continue;
+      if (!TString(key->GetName()).BeginsWith("Method_")) continue;//Method_BDT Method_CUT dir in input file
       if (!gROOT->GetClass(key->GetClassName())->InheritsFrom("TDirectory")) continue;
 
       TString methodName;
       TMVAGlob::GetMethodName(methodName,key);
 
-      TDirectory* mDir = (TDirectory*)key->ReadObj();
+      TDirectory* mDir = (TDirectory*)key->ReadObj();//?
 
       TIter keyIt(mDir->GetListOfKeys());
       TKey *titkey;
@@ -55,7 +58,7 @@ void mvas( TString fin = "TMVA.root", HistType htype = MVAType, Bool_t useTMVASt
          TString methodTitle;
          TMVAGlob::GetMethodTitle(methodTitle,titDir);
 
-	 std::cout << "--- Found directory for method: " << methodName << "::" << methodTitle << std::flush;
+    	 std::cout << "--- Found directory for method: " << methodName << "::" << methodTitle << std::flush;
          TString hname = "MVA_" + methodTitle;
          if      (htype == ProbaType  ) hname += "_Proba";
          else if (htype == RarityType ) hname += "_Rarity";
@@ -234,10 +237,10 @@ void mvas( TString fin = "TMVA.root", HistType htype = MVAType, Bool_t useTMVASt
 
          TMVAGlob::plot_logo(1.058);
          if (Save_Images) {
-            if      (htype == MVAType)     TMVAGlob::imgconv( c, Form("plots/mva_%s",     methodTitle.Data()) );
-            else if (htype == ProbaType)   TMVAGlob::imgconv( c, Form("plots/proba_%s",   methodTitle.Data()) ); 
-            else if (htype == CompareType) TMVAGlob::imgconv( c, Form("plots/overtrain_%s", methodTitle.Data()) ); 
-            else                           TMVAGlob::imgconv( c, Form("plots/rarity_%s",  methodTitle.Data()) ); 
+            if      (htype == MVAType)     TMVAGlob::imgconv( c, Form("plots_1tau0l/mva_%s",     methodTitle.Data()) );
+            else if (htype == ProbaType)   TMVAGlob::imgconv( c, Form("plots_1tau0l/proba_%s",   methodTitle.Data()) ); 
+            else if (htype == CompareType) TMVAGlob::imgconv( c, Form("plots_1tau0l/overtrain_%s", methodTitle.Data()) ); 
+            else                           TMVAGlob::imgconv( c, Form("plots_1tau0l/rarity_%s",  methodTitle.Data()) ); 
          }
          countCanvas++;
          
