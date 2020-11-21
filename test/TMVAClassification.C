@@ -162,7 +162,8 @@ void TMVAClassification( TString myMethodList = "" )
    // Create a ROOT output file where TMVA will store ntuples, histograms, etc.
    // TString outfileName( "TMVA.root" );
    // TString outfileName( "TMVA_study.root" );
-   TString outfileName( "TMVA_1Tau0L.root" );
+   // TString outfileName( "TMVA_1Tau0L.root" );
+   TString outfileName( "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/TMVA_1Tau0L_v1.root" );
    TFile* outputFile = TFile::Open( outfileName, "RECREATE" );
 
    // Create the factory object. Later you can choose the methods
@@ -182,7 +183,7 @@ void TMVAClassification( TString myMethodList = "" )
    // (please check "src/Config.h" to see all available global options)
    //    (TMVA::gConfig().GetVariablePlotting()).fTimesRMS = 8.0;
       // (TMVA::gConfig().GetIONames()).fWeightFileDir = "myWeightDirectory";
-      (TMVA::gConfig().GetIONames()).fWeightFileDir = "myWeightDirectory_1tau0lTausT";
+      (TMVA::gConfig().GetIONames()).fWeightFileDir = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/weight1Tau0L_v1";
 
    // Define the input variables that shall be used for the MVA training
    // note that you may also use variable expressions, such as: "3*var1/var2*abs(var3)"
