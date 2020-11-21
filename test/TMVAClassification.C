@@ -182,7 +182,7 @@ void TMVAClassification( TString myMethodList = "" )
    // (please check "src/Config.h" to see all available global options)
    //    (TMVA::gConfig().GetVariablePlotting()).fTimesRMS = 8.0;
       // (TMVA::gConfig().GetIONames()).fWeightFileDir = "myWeightDirectory";
-      (TMVA::gConfig().GetIONames()).fWeightFileDir = "myWeightDirectory_1tau0l";
+      (TMVA::gConfig().GetIONames()).fWeightFileDir = "myWeightDirectory_1tau0lTausT";
 
    // Define the input variables that shall be used for the MVA training
    // note that you may also use variable expressions, such as: "3*var1/var2*abs(var3)"
@@ -197,7 +197,7 @@ void TMVAClassification( TString myMethodList = "" )
     factory->AddVariable( "jetsL_HT",         "jetsL_HT"   , "units", 'F');
     factory->AddVariable( "bjetsL_HT",         "bjetsL_HT"   , "units", 'F');
     factory->AddVariable( "bjetsL_transMass",         "bjetsL_transMass"   , "units", 'F');
-    // factory->AddVariable( "jetsL_bscore",         "jetsL_bscore"   , "units", 'F');
+    factory->AddVariable( "jetsL_bScore",         "jetsL_bScore"   , "units", 'F');
 
    // You can add so-called "Spectator variables", which are not used in the MVA training,
    // but will appear in the final "TestTree" produced by TMVA. This TestTree will contain the
@@ -208,8 +208,8 @@ void TMVAClassification( TString myMethodList = "" )
    // Read training and test data
    // (it is also possible to use ASCII format as input -> see TMVA Users Guide)
    // TString fname = "./tmva_class_example.root";
-   TString fname_signal = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0l/NoJEC/TTTT_TuneCUETP8M2T4_13TeV-amcatnlo-pythia8.root";
-   TString fname_bg     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0l/NoJEC/TTJets_TuneCUETP8M2T4_13TeV-amcatnloFXFX-pythia8.root";
+   TString fname_signal = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/TTTT_TuneCUETP8M2T4_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/TTJets_TuneCUETP8M2T4_13TeV-amcatnloFXFX-pythia8.root";
    
    // if (gSystem->AccessPathName( fname ))  // file does not exist in local directory
       // gSystem->Exec("curl -O http://root.cern.ch/files/tmva_class_example.root");

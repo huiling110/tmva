@@ -6,7 +6,7 @@
 // input: - Input file (result from TMVA),
 //        - normal/decorrelated/PCA
 //        - use of TMVA plotting TStyle
-void variables( TString fin = "TMVA.root", TString dirName = "InputVariables_Id", TString title = "TMVA Input Variables",
+void variables( TString fin = "TMVA_1Tau0L.root", TString dirName = "InputVariables_Id", TString title = "TMVA Input Variables",
                 Bool_t isRegression = kFALSE, Bool_t useTMVAStyle = kTRUE )
 {
    TString outfname = dirName;
@@ -168,7 +168,7 @@ void variables( TString fin = "TMVA.root", TString dirName = "InputVariables_Id"
 
       // save canvas to file
       if (countPad%noPadPerCanv==0) {
-         TString fname = Form( "plots/%s_c%i", outfname.Data(), countCanvas );
+         TString fname = Form( "plots_1tau0l_tausT/%s_c%i", outfname.Data(), countCanvas );
          TMVAGlob::plot_logo();
          TMVAGlob::imgconv( canv, fname );
          createNewFig = kFALSE;
@@ -179,7 +179,7 @@ void variables( TString fin = "TMVA.root", TString dirName = "InputVariables_Id"
    }
    
    if (createNewFig) {
-      TString fname = Form( "plots/%s_c%i", outfname.Data(), countCanvas );
+      TString fname = Form( "plots_1tau0l_tausT/%s_c%i", outfname.Data(), countCanvas );
       TMVAGlob::plot_logo();
       TMVAGlob::imgconv( canv, fname );
       createNewFig = kFALSE;

@@ -34,7 +34,9 @@ using std::endl;
 // as a function of the MVA cut.
 
 enum PlotType { EffPurity = 0 };
+//?why PlotType not used anywhere else ?
 
+//?what is the use of MethodInfo class?
 class MethodInfo : public TNamed {
 public:
    MethodInfo() :
@@ -218,6 +220,7 @@ void StatDialogMVAEffs::Redraw()
 void StatDialogMVAEffs::Close() 
 {
    delete this;
+   //?this?
 }
 
 StatDialogMVAEffs::~StatDialogMVAEffs() 
@@ -259,7 +262,7 @@ StatDialogMVAEffs::StatDialogMVAEffs(const TGWindow* p, Float_t ns, Float_t nb) 
    UInt_t totalHeight = 300;
 
    // main frame
-   fMain = new TGMainFrame(p, totalWidth, totalHeight, kMainFrame | kVerticalFrame);
+   fMain = new TGMainFrame(p, totalWidth, totalHeight, kMainFrame | kVerticalFrame);//Create a top level main frame.A main frame interacts with the window manager.
 
    TGLabel *sigLab = new TGLabel(fMain,"Signal events");
    fMain->AddFrame(sigLab, new TGLayoutHints(kLHintsLeft | kLHintsTop,5,5,5,5));
@@ -367,7 +370,7 @@ void StatDialogMVAEffs::UpdateSignificanceHists()
 void StatDialogMVAEffs::ReadHistograms(TFile* file) 
 {
    if (fInfoList) { 
-      TIter next(fInfoList);
+      TIter next(fInfoList);//TIter object acts as generic iterator
       MethodInfo *info(0);
       while ( (info = (MethodInfo*)next()) ) {
          delete info;
@@ -378,7 +381,7 @@ void StatDialogMVAEffs::ReadHistograms(TFile* file)
    fInfoList = new TList;
 
    // search for the right histograms in full list of keys
-   TIter next(file->GetListOfKeys());
+   TIter next(file->GetListOfKeys());//
    TKey *key(0);   
    while( (key = (TKey*)next()) ) {
 
@@ -612,9 +615,13 @@ void mvaeffs( TString fin = "TMVA_1Tau0L.root",
 {
    TMVAGlob::Initialize( useTMVAStyle );
 
-   StatDialogMVAEffs* gGui = new StatDialogMVAEffs(gClient->GetRoot(), 1000, 1000);
+   // StatDialogMVAEffs* gGui = new StatDialogMVAEffs(gClient->GetRoot(), 1000, 1000);
+   StatDialogMVAEffs* gGui = new StatDialogMVAEffs(gClient->GetRoot(), 128089,135243 );
+   // StatDialogMVAEffs* gGui = new StatDialogMVAEffs(gClient->GetRoot());
 
    TFile* file = TMVAGlob::OpenFile( fin );
+   // gGui->SetNSignal();
+   // gGui->SetNBackground();
    gGui->ReadHistograms(file);
    gGui->SetFormula(formula);
    gGui->UpdateSignificanceHists();
