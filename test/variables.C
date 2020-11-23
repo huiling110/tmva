@@ -17,6 +17,7 @@ void variables( TString fin = "TMVA_1Tau0L.root", TString dirName = "InputVariab
 
    // obtain shorter histogram title 
    TString htitle = title; 
+   //?
    htitle.ReplaceAll("variables ","variable");
    htitle.ReplaceAll("and target(s)","");
    htitle.ReplaceAll("(training sample)","");
@@ -24,7 +25,7 @@ void variables( TString fin = "TMVA_1Tau0L.root", TString dirName = "InputVariab
    // checks if file with name "fin" is already open, and if not opens one
    TFile* file = TMVAGlob::OpenFile( fin );
 
-   TDirectory* dir = (TDirectory*)file->Get( dirName );
+   TDirectory* dir = (TDirectory*)file->Get( dirName );//dirName is a dir in fin
    if (dir==0) {
       cout << "No information about " << title << " available in directory " << dirName << " of file " << fin << endl;
       return;
@@ -63,6 +64,7 @@ void variables( TString fin = "TMVA_1Tau0L.root", TString dirName = "InputVariab
    // loop over all objects in directory
    TCanvas* canv = 0;
    TKey*    key  = 0;
+   //?
    Bool_t   createNewFig = kFALSE;
    TIter next(dir->GetListOfKeys());
    while ((key = (TKey*)next())) {

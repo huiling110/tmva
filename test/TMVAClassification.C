@@ -192,13 +192,36 @@ void TMVAClassification( TString myMethodList = "" )
    // factory->AddVariable( "myvar2 := var1-var2", "Expression 2", "", 'F' );
    // factory->AddVariable( "var3",                "Variable 3", "units", 'F' );
    // factory->AddVariable( "var4",                "Variable 4", "units", 'F' );
-    factory->AddVariable( "jetsL_8pt",                "jetsL_8pt", "units", 'F' );
     factory->AddVariable( "jetsL_number",                "jetsL_number", "units", 'F' );
     factory->AddVariable( "jetsL_transMass",         "jetsL_transMass"   , "units", 'F');
     factory->AddVariable( "jetsL_HT",         "jetsL_HT"   , "units", 'F');
+    factory->AddVariable( "jetsL_8pt",                "jetsL_8pt", "units", 'F' );
+    factory->AddVariable( "jetsL_6pt",                "jetsL_6pt", "units", 'F' );
+    factory->AddVariable( "jetsL_7pt",                "jetsL_7pt", "units", 'F' );
+    factory->AddVariable( "jetsL_5pt",                "jetsL_5pt", "units", 'F' );
     factory->AddVariable( "bjetsL_HT",         "bjetsL_HT"   , "units", 'F');
     factory->AddVariable( "bjetsL_transMass",         "bjetsL_transMass"   , "units", 'F');
+    factory->AddVariable( "jetsL_4pt",                "jetsL_4pt", "units", 'F' );
     factory->AddVariable( "jetsL_bScore",         "jetsL_bScore"   , "units", 'F');
+    factory->AddVariable( "bjetsL_invariantMass",                "bjetsL_invariantMass", "units", 'F' );
+    factory->AddVariable( "jetsL_9pt",                "jetsL_9pt", "units", 'F' );
+    factory->AddVariable( "jetsL_3pt",                "jetsL_3pt", "units", 'F' );
+    factory->AddVariable( "jetsL_4largestBscoreSum",                "jetsL_invariantMass", "units", 'F' );
+    factory->AddVariable( "bjetsL_3pt",                "bjetsL_3pt", "units", 'F' );
+    factory->AddVariable( "bjetsM_HT",                "bjetsM_HT", "units", 'F' );
+    factory->AddVariable( "bjetsM_invariantMass",                "bjetsM_invariantMass", "units", 'F' );
+    factory->AddVariable( "bjetsM_transMass",                "bjetsM_transMass", "units", 'F' );
+    factory->AddVariable( "bjetsM_num",                "bjetsM_num", "units", 'F' );
+    factory->AddVariable( "bjetsL_num",                "bjetsL_num", "units", 'F' );
+    factory->AddVariable( "bjetsL_2pt",                "bjetsL_2pt", "units", 'F' );
+    factory->AddVariable( "bjetsL_4pt",                "jetsL_2pt", "units", 'F' );
+    factory->AddVariable( "toptagger_transMass",                "toptagger_transMass", "units", 'F' );
+    factory->AddVariable( "toptagger_HT",                "toptagger_HT", "units", 'F' );
+    factory->AddVariable( "jetsL_10pt",                "jetsL_10pt", "units", 'F' );
+    factory->AddVariable( "bjetsL_1pt",                "bjetsL_1pt", "units", 'F' );
+    factory->AddVariable( "jetsL_1pt",                "bjetsM_2pt", "units", 'F' );
+    factory->AddVariable( "bjetsT_HT",                "bjetsT_transMass", "units", 'F' );
+    // factory->AddVariable( "",                "", "units", 'F' );
 
    // You can add so-called "Spectator variables", which are not used in the MVA training,
    // but will appear in the final "TestTree" produced by TMVA. This TestTree will contain the
@@ -211,7 +234,7 @@ void TMVAClassification( TString myMethodList = "" )
    // TString fname = "./tmva_class_example.root";
    TString fname_signal = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/TTTT_TuneCUETP8M2T4_13TeV-amcatnlo-pythia8.root";
    //6
-   TString fname_bg_TTJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/TTJets_TuneCUETP8M2T4_13TeV-amcatnloFXFX-pythia8.root";
+   TString fname_bg_TTJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/TTJets_TuneCUETP8M2T4_13TeV-amcatnloFXFX-pythia8.root";/*{{{*/
    TString fname_bg_TTGJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/TTGJets_TuneCUETP8M1_13TeV-amcatnloFXFX-madspin-pythia8.root";
    TString fname_bg_ttZJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ttZJets_13TeV_madgraphMLM-pythia8.root";
    TString fname_bg_ttWJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ttWJets_13TeV_madgraphMLM.root";
@@ -219,7 +242,7 @@ void TMVAClassification( TString myMethodList = "" )
    // TString fname_bg_ttbb     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ttbb_4FS_ckm_amcatnlo_madspin_pythia8.root";
     //12
    TString fname_bg_WZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WZ_TuneCUETP8M1_13TeV-pythia8.root";
-   TString fname_bg_WWTo2L2Nu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WWTo2L2Nu_DoubleScattering_13TeV-pythia8.root";
+   // TString fname_bg_WWTo2L2Nu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WWTo2L2Nu_DoubleScattering_13TeV-pythia8.root";
    TString fname_bg_WpWpJJ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WpWpJJ_EWK-QCD_TuneCUETP8M1_13TeV-madgraph-pythia8.root";
    TString fname_bg_ZZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ZZ_TuneCUETP8M1_13TeV-pythia8.root";
    TString fname_bg_WGJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WGJets_MonoPhoton_PtG-40to130_TuneCUETP8M1_13TeV-madgraph.root";
@@ -238,7 +261,7 @@ void TMVAClassification( TString myMethodList = "" )
 
    TString fname_bg_DYJetsToTauTau     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/DYJetsToTauTau_ForcedMuEleDecay_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8_ext1.root";
     //28
-   TString fname_bg_tZq     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/tZq_ll_4f_ckm_NLO_TuneCP5_PSweights_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_tZq_ll     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/tZq_ll_4f_ckm_NLO_TuneCP5_PSweights_13TeV-amcatnlo-pythia8.root";
    TString fname_bg_ST_tW_antitop     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4.root";
    TString fname_bg_ST_tW_top     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4.root";
    TString fname_bg_TGJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/TGJets_TuneCUETP8M1_13TeV_amcatnlo_madspin_pythia8.root";
@@ -251,14 +274,14 @@ void TMVAClassification( TString myMethodList = "" )
    TString fname_bg_GluGluHToZZTo4L     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToZZTo4L_M125_13TeV_powheg2_JHUgenV6_pythia8.root";
    TString fname_bg_GluGluHToBB     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToBB_M125_13TeV_amcatnloFXFX_pythia8.root";
    TString fname_bg_GluGluHToGG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToGG_M125_13TeV_amcatnloFXFX_pythia8.root";
-   TString fname_bg_GluGluHToMuMu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToMuMu_M-125_TuneCP5_PSweights_13TeV_powheg_pythia8.root";
-   TString fname_bg_GluGluHToTauTau     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root";
-   TString fname_bg_GluGluHToWWTo2L2Nu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToWWTo2L2Nu_M125_13TeV_powheg_JHUgen_pythia8.root";
-   TString fname_bg_GluGluHToWWToLNuQQ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToWWToLNuQQ_M125_13TeV_powheg_JHUGenV628_pythia8.root";
+   // TString fname_bg_GluGluHToMuMu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToMuMu_M-125_TuneCP5_PSweights_13TeV_powheg_pythia8.root";
+   // TString fname_bg_GluGluHToTauTau     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root";
+   // TString fname_bg_GluGluHToWWTo2L2Nu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToWWTo2L2Nu_M125_13TeV_powheg_JHUgen_pythia8.root";
+   // TString fname_bg_GluGluHToWWToLNuQQ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToWWToLNuQQ_M125_13TeV_powheg_JHUGenV628_pythia8.root";
     //41
-   TString fname_bg_VBFHToWWTo2L2Nu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/VBFHToWWTo2L2Nu_M125_13TeV_powheg_JHUgenv628_pythia8.root";
-   TString fname_bg_VBFHToMuMu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/VBFHToMuMu_M-125_TuneCP5_PSweights_13TeV_powheg_pythia8.root";
-   TString fname_bg_VBFHToGG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/VBFHToGG_M125_13TeV_amcatnlo_pythia8_v2.root";
+   // TString fname_bg_VBFHToWWTo2L2Nu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/VBFHToWWTo2L2Nu_M125_13TeV_powheg_JHUgenv628_pythia8.root";
+   // TString fname_bg_VBFHToMuMu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/VBFHToMuMu_M-125_TuneCP5_PSweights_13TeV_powheg_pythia8.root";
+   // TString fname_bg_VBFHToGG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/VBFHToGG_M125_13TeV_amcatnlo_pythia8_v2.root";[>}}}<]
    // TString fname_bg_     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/";
    
    // if (gSystem->AccessPathName( fname ))  // file does not exist in local directory
@@ -267,7 +290,7 @@ void TMVAClassification( TString myMethodList = "" )
    // TFile *input = TFile::Open( fname );
    TFile *input_signal = TFile::Open( fname_signal );
 
-   TFile *input_bg_TTJets     = TFile::Open( fname_bg_TTJets );
+   TFile *input_bg_TTJets     = TFile::Open( fname_bg_TTJets );/*{{{*/
    TFile *input_bg_TTGJets   = TFile::Open( fname_bg_TTGJets )     ;
    TFile *input_bg_ttZJets   = TFile::Open( fname_bg_ttZJets )     ;
    TFile *input_bg_ttWJets   = TFile::Open( fname_bg_ttWJets )     ;
@@ -275,7 +298,7 @@ void TMVAClassification( TString myMethodList = "" )
    // TFile *input_bg_ttbb   = TFile::Open( fname_bg_ttbb )     ;
     //12
    TFile *input_bg_WZ   = TFile::Open( fname_bg_WZ )     ;
-   TFile *input_bg_WWTo2L2Nu   = TFile::Open( fname_bg_WWTo2L2Nu )     ;
+   // TFile *input_bg_WWTo2L2Nu   = TFile::Open( fname_bg_WWTo2L2Nu )     ;
    TFile *input_bg_WpWpJJ   = TFile::Open( fname_bg_WpWpJJ )     ;
    TFile *input_bg_ZZ   = TFile::Open( fname_bg_ZZ )     ;
    TFile *input_bg_WGJets   = TFile::Open( fname_bg_WGJets )     ;
@@ -294,7 +317,7 @@ void TMVAClassification( TString myMethodList = "" )
 
    TFile *input_bg_DYJetsToTauTau   = TFile::Open( fname_bg_DYJetsToTauTau )     ;
     //28
-   TFile *input_bg_tZq   = TFile::Open( fname_bg_tZq )     ;
+   TFile *input_bg_tZq_ll   = TFile::Open( fname_bg_tZq_ll )     ;
    TFile *input_bg_ST_tW_antitop   = TFile::Open( fname_bg_ST_tW_antitop )     ;
    TFile *input_bg_ST_tW_top   = TFile::Open( fname_bg_ST_tW_top )     ;
    TFile *input_bg_TGJets   = TFile::Open( fname_bg_TGJets )     ;
@@ -307,14 +330,14 @@ void TMVAClassification( TString myMethodList = "" )
    TFile *input_bg_GluGluHToZZTo4L   = TFile::Open( fname_bg_GluGluHToZZTo4L )     ;
    TFile *input_bg_GluGluHToBB   = TFile::Open( fname_bg_GluGluHToBB )     ;
    TFile *input_bg_GluGluHToGG   = TFile::Open( fname_bg_GluGluHToGG )     ;
-   TFile *input_bg_GluGluHToMuMu   = TFile::Open( fname_bg_GluGluHToMuMu )     ;
-   TFile *input_bg_GluGluHToTauTau   = TFile::Open( fname_bg_GluGluHToTauTau )     ;
-   TFile *input_bg_GluGluHToWWTo2L2Nu   = TFile::Open( fname_bg_GluGluHToWWTo2L2Nu )     ;
-   TFile *input_bg_GluGluHToWWToLNuQQ   = TFile::Open( fname_bg_GluGluHToWWToLNuQQ )     ;
+   // TFile *input_bg_GluGluHToMuMu   = TFile::Open( fname_bg_GluGluHToMuMu )     ;
+   // TFile *input_bg_GluGluHToTauTau   = TFile::Open( fname_bg_GluGluHToTauTau )     ;
+   // TFile *input_bg_GluGluHToWWTo2L2Nu   = TFile::Open( fname_bg_GluGluHToWWTo2L2Nu )     ;
+   // TFile *input_bg_GluGluHToWWToLNuQQ   = TFile::Open( fname_bg_GluGluHToWWToLNuQQ )     ;
     //41
-   TFile *input_bg_VBFHToWWTo2L2Nu   = TFile::Open( fname_bg_VBFHToWWTo2L2Nu )     ;
-   TFile *input_bg_VBFHToMuMu   = TFile::Open( fname_bg_VBFHToMuMu )     ;
-   TFile *input_bg_VBFHToGG   = TFile::Open( fname_bg_VBFHToGG )     ;
+   // TFile *input_bg_VBFHToWWTo2L2Nu   = TFile::Open( fname_bg_VBFHToWWTo2L2Nu )     ;
+   // TFile *input_bg_VBFHToMuMu   = TFile::Open( fname_bg_VBFHToMuMu )     ;
+   // TFile *input_bg_VBFHToGG   = TFile::Open( fname_bg_VBFHToGG )     ;[>}}}<]
    
    // std::cout << "--- TMVAClassification       : Using input file: " << input->GetName() << std::endl;
    std::cout << "--- TMVAClassification       : Using input file: " << input_signal->GetName() << std::endl;
@@ -326,7 +349,7 @@ void TMVAClassification( TString myMethodList = "" )
    // TTree *background = (TTree*)input->Get("TreeB");
    TTree *signal     = (TTree*)input_signal->Get("tree");
 
-   TTree *bg_TTJets = (TTree*)input_bg_TTJets->Get("tree");
+   TTree *bg_TTJets = (TTree*)input_bg_TTJets->Get("tree");/*{{{*/
    TTree *bg_TTGJets  = (TTree*)input_bg_TTGJets->Get("tree")         ;
    TTree *bg_ttZJets  = (TTree*)input_bg_ttZJets->Get("tree")         ;
    TTree *bg_ttWJets  = (TTree*)input_bg_ttWJets->Get("tree")         ;
@@ -334,7 +357,7 @@ void TMVAClassification( TString myMethodList = "" )
    // TTree *bg_ttbb  = (TTree*)input_bg_ttbb->Get("tree")         ;
     //12
    TTree *bg_WZ  = (TTree*)input_bg_WZ->Get("tree")         ;
-   TTree *bg_WWTo2L2Nu  = (TTree*)input_bg_WWTo2L2Nu->Get("tree")         ;
+   // TTree *bg_WWTo2L2Nu  = (TTree*)input_bg_WWTo2L2Nu->Get("tree")         ;
    TTree *bg_WpWpJJ  = (TTree*)input_bg_WpWpJJ->Get("tree")         ;
    TTree *bg_ZZ  = (TTree*)input_bg_ZZ->Get("tree")         ;
    TTree *bg_WGJets  = (TTree*)input_bg_WGJets->Get("tree")         ;
@@ -353,7 +376,7 @@ void TMVAClassification( TString myMethodList = "" )
 
    TTree *bg_DYJetsToTauTau  = (TTree*)input_bg_DYJetsToTauTau->Get("tree")         ;
     //28
-   TTree *bg_tZq  = (TTree*)input_bg_tZq->Get("tree")         ;
+   TTree *bg_tZq_ll  = (TTree*)input_bg_tZq_ll->Get("tree")         ;
    TTree *bg_ST_tW_antitop  = (TTree*)input_bg_ST_tW_antitop->Get("tree")         ;
    TTree *bg_ST_tW_top  = (TTree*)input_bg_ST_tW_top->Get("tree")         ;
    TTree *bg_TGJets  = (TTree*)input_bg_TGJets->Get("tree")         ;
@@ -366,14 +389,14 @@ void TMVAClassification( TString myMethodList = "" )
    TTree *bg_GluGluHToZZTo4L  = (TTree*)input_bg_GluGluHToZZTo4L->Get("tree")         ;
    TTree *bg_GluGluHToBB  = (TTree*)input_bg_GluGluHToBB->Get("tree")         ;
    TTree *bg_GluGluHToGG  = (TTree*)input_bg_GluGluHToGG->Get("tree")         ;
-   TTree *bg_GluGluHToMuMu  = (TTree*)input_bg_GluGluHToMuMu->Get("tree")         ;
-   TTree *bg_GluGluHToTauTau  = (TTree*)input_bg_GluGluHToTauTau->Get("tree")         ;
-   TTree *bg_GluGluHToWWTo2L2Nu  = (TTree*)input_bg_GluGluHToWWTo2L2Nu->Get("tree")         ;
-   TTree *bg_GluGluHToWWToLNuQQ  = (TTree*)input_bg_GluGluHToWWToLNuQQ->Get("tree")         ;
+   // TTree *bg_GluGluHToMuMu  = (TTree*)input_bg_GluGluHToMuMu->Get("tree")         ;
+   // TTree *bg_GluGluHToTauTau  = (TTree*)input_bg_GluGluHToTauTau->Get("tree")         ;
+   // TTree *bg_GluGluHToWWTo2L2Nu  = (TTree*)input_bg_GluGluHToWWTo2L2Nu->Get("tree")         ;
+   // TTree *bg_GluGluHToWWToLNuQQ  = (TTree*)input_bg_GluGluHToWWToLNuQQ->Get("tree")         ;
     //41
-   TTree *bg_VBFHToWWTo2L2Nu  = (TTree*)input_bg_VBFHToWWTo2L2Nu->Get("tree")         ;
-   TTree *bg_VBFHToMuMu  = (TTree*)input_bg_VBFHToMuMu->Get("tree")         ;
-   TTree *bg_VBFHToGG  = (TTree*)input_bg_VBFHToGG->Get("tree")         ;
+   // TTree *bg_VBFHToWWTo2L2Nu  = (TTree*)input_bg_VBFHToWWTo2L2Nu->Get("tree")         ;
+   // TTree *bg_VBFHToMuMu  = (TTree*)input_bg_VBFHToMuMu->Get("tree")         ;
+   // TTree *bg_VBFHToGG  = (TTree*)input_bg_VBFHToGG->Get("tree")         ;[>}}}<]
    
    // global event weights per tree (see below for setting event-wise weights)
    // Double_t signalWeight     = 1.0;
@@ -382,7 +405,7 @@ void TMVAClassification( TString myMethodList = "" )
    Double_t signalWeight     = (LUMI*0.01197)/(1709406-704054);
    // Double_t bgWeight_TTJets =  (LUMI*746.7)/(29509487-14335648);
     //6
-    Double_t wTTJets = (LUMI*746.7)/(29509487-14335648);//746.7 // TTJets_TuneCUETP8M2T4_13TeV-amcatnloFXFX-pythia8.root:  Positive:29509487  Negtive:14335648
+    Double_t wTTJets = (LUMI*746.7)/(29509487-14335648);//746.7 // TTJets_TuneCUETP8M2T4_13TeV-amcatnloFXFX-pythia8.root:  Positive:29509487  Negtive:14335648{{{
     Double_t wTTGJets = (LUMI*3.773)/(3224372-1646539);// TTGJets_TuneCUETP8M1_13TeV-amcatnloFXFX-madspin-pythia8.root:  Positive:3224372  Negtive:1646539  ;
     Double_t wttZJets = (LUMI*0.6559)/(9883364-0) ;// ttZJets_13TeV_madgraphMLM-pythia8.root:  Positive:9883364  Negtive:0      //Special care is taken when scaling the ttZ background to the cr
     Double_t wttWJets = (LUMI*0.2014)/(6700440-0);// ttWJets_13TeV_madgraphMLM.root:  Positive:6700440  Negtive:0  ;
@@ -390,7 +413,7 @@ void TMVAClassification( TString myMethodList = "" )
     // Double_t wttbb= (LUMI*1.393)/(2556073-1427835);// ttbb_4FS_ckm_amcatnlo_madspin_pythia8.root:  Positive:2556073  Negtive:1427835  ;
     //12
     Double_t wWZ= (LUMI*2.343)/(2997571-0);// WZ_TuneCUETP8M1_13TeV-pythia8.root:  Positive:2997571  Negtive:0  ;
-    Double_t wWWTo2L2Nu = (LUMI*0.1697)/(999367-0); // WWTo2L2Nu_DoubleScattering_13TeV-pythia8.root:  Positive:999367  Negtive:0  ;
+    // Double_t wWWTo2L2Nu = (LUMI*0.1697)/(999367-0); // WWTo2L2Nu_DoubleScattering_13TeV-pythia8.root:  Positive:999367  Negtive:0  ;
     Double_t wWpWpJJ= (LUMI*0.05390)/(149681-0);// WpWpJJ_EWK-QCD_TuneCUETP8M1_13TeV-madgraph-pythia8.root:  Positive:149681  Negtive:0  ;
     Double_t wZZ  = (LUMI*1.016)/(998034-0);// ZZ_TuneCUETP8M1_13TeV-pythia8.root:  Positive:998034  Negtive:0  ;
     Double_t wWGJets = (LUMI*1.269)/(5077680-0);// WGJets_MonoPhoton_PtG-40to130_TuneCUETP8M1_13TeV-madgraph.root:  Positive:5077680  Negtive:0  ;
@@ -422,20 +445,21 @@ void TMVAClassification( TString myMethodList = "" )
     Double_t wGluGluHToZZTo4L= (LUMI*2.999)/(999800-0);// GluGluHToZZTo4L_M125_13TeV_powheg2_JHUgenV6_pythia8.root:  Positive:999800  Negtive:0  ;
     Double_t wGluGluHToBB= (LUMI*32.10)/(2946318-853055);// GluGluHToBB_M125_13TeV_amcatnloFXFX_pythia8.root:  Positive:2946318  Negtive:853055  ;
     Double_t wGluGluHToGG= (LUMI*31.98)/(335240-96369);// GluGluHToGG_M125_13TeV_amcatnloFXFX_pythia8.root:  Positive:335240  Negtive:96369  ;
-    Double_t wGluGluHToMuMu= (LUMI*29.99)/(1991200-0);// GluGluHToMuMu_M-125_TuneCP5_PSweights_13TeV_powheg_pythia8.root:  Positive:1991200  Negtive:0  ;
-    Double_t wGluGluHToTauTau= (LUMI*30.52)/(1497800-0);// GluGluHToTauTau_M125_13TeV_powheg_pythia8.root:  Positive:1497800  Negtive:0  ;
-    Double_t wGluGluHToWWTo2L2Nu= (LUMI*30.52)/(492200-0);// GluGluHToWWTo2L2Nu_M125_13TeV_powheg_JHUgen_pythia8.root:  Positive:492200  Negtive:0  ;
-    Double_t wGluGluHToWWToLNuQQ= (LUMI*29.99)/(198000-0);// GluGluHToWWToLNuQQ_M125_13TeV_powheg_JHUGenV628_pythia8.root:  Positive:198000  Negtive:0  ;
+    // Double_t wGluGluHToMuMu= (LUMI*29.99)/(1991200-0);// GluGluHToMuMu_M-125_TuneCP5_PSweights_13TeV_powheg_pythia8.root:  Positive:1991200  Negtive:0  ;
+    // Double_t wGluGluHToTauTau= (LUMI*30.52)/(1497800-0);// GluGluHToTauTau_M125_13TeV_powheg_pythia8.root:  Positive:1497800  Negtive:0  ;
+    // Double_t wGluGluHToWWTo2L2Nu= (LUMI*30.52)/(492200-0);// GluGluHToWWTo2L2Nu_M125_13TeV_powheg_JHUgen_pythia8.root:  Positive:492200  Negtive:0  ;
+    // Double_t wGluGluHToWWToLNuQQ= (LUMI*29.99)/(198000-0);// GluGluHToWWToLNuQQ_M125_13TeV_powheg_JHUGenV628_pythia8.root:  Positive:198000  Negtive:0  ;
     //41
-    Double_t wVBFHToWWTo2L2Nu= (LUMI*3.769)/(99931-69);// VBFHToWWTo2L2Nu_M125_13TeV_powheg_JHUgenv628_pythia8.root:  Positive:99931  Negtive:69  ;
-    Double_t wVBFHToMuMu= (LUMI*0.000823)/(996835-765);// VBFHToMuMu_M-125_TuneCP5_PSweights_13TeV_powheg_pythia8.root:  Positive:996835  Negtive:765  ;
-    Double_t wVBFHToGG= (LUMI*3.992)/(639138-338962);// VBFHToGG_M125_13TeV_amcatnlo_pythia8_v2.root:  Positive:639138  Negtive:338962  ;
+    // Double_t wVBFHToWWTo2L2Nu= (LUMI*3.769)/(99931-69);// VBFHToWWTo2L2Nu_M125_13TeV_powheg_JHUgenv628_pythia8.root:  Positive:99931  Negtive:69  ;
+    // Double_t wVBFHToMuMu= (LUMI*0.000823)/(996835-765);// VBFHToMuMu_M-125_TuneCP5_PSweights_13TeV_powheg_pythia8.root:  Positive:996835  Negtive:765  ;
+    // Double_t wVBFHToGG= (LUMI*3.992)/(639138-338962);// VBFHToGG_M125_13TeV_amcatnlo_pythia8_v2.root:  Positive:639138  Negtive:338962  ;}}}
 
 
 
    // You can add an arbitrary number of signal or background trees
    factory->AddSignalTree    ( signal,     signalWeight     );
-   factory->AddBackgroundTree( bg_TTJets, bgWeight_TTJets );
+   // factory->AddBackgroundTree( bg_TTJets, bgWeight_TTJets );
+   /*{{{*/
 
    factory->AddBackgroundTree(bg_TTJets , wTTJets );
    factory->AddBackgroundTree(bg_TTGJets  , wTTGJets          );
@@ -445,7 +469,7 @@ void TMVAClassification( TString myMethodList = "" )
    // factory->AddBackgroundTree(bg_ttbb  , wttbb          );
     //12
    factory->AddBackgroundTree(bg_WZ  , wWZ          );
-   factory->AddBackgroundTree(bg_WWTo2L2Nu  , wWWTo2L2Nu          );
+   // factory->AddBackgroundTree(bg_WWTo2L2Nu  , wWWTo2L2Nu          );
    factory->AddBackgroundTree(bg_WpWpJJ  , wWpWpJJ          );
    factory->AddBackgroundTree(bg_ZZ  , wZZ          );
    factory->AddBackgroundTree(bg_WGJets  , wWGJets          );
@@ -464,7 +488,7 @@ void TMVAClassification( TString myMethodList = "" )
 
    factory->AddBackgroundTree(bg_DYJetsToTauTau  , wDYJetsToTauTau          );
     //28
-   factory->AddBackgroundTree(bg_tZq  , wtZq          );
+   factory->AddBackgroundTree(bg_tZq_ll  , wtZq_ll          );
    factory->AddBackgroundTree(bg_ST_tW_antitop  , wST_tW_antitop          );
    factory->AddBackgroundTree(bg_ST_tW_top  , wST_tW_top          );
    factory->AddBackgroundTree(bg_TGJets  , wTGJets          );
@@ -473,18 +497,19 @@ void TMVAClassification( TString myMethodList = "" )
     //38
    factory->AddBackgroundTree(bg_VHToNonbb  , wVHToNonbb          );
    factory->AddBackgroundTree(bg_ZHToTauTau  , wZHToTauTau          );
-   factory->AddBackgroundTree(bg_ZH_HToBB  , wZH_HToBB          );
+   factory->AddBackgroundTree(bg_ZH_HToBB  , wZH_HToBB_ZToLL          );// not consistent
    factory->AddBackgroundTree(bg_GluGluHToZZTo4L  , wGluGluHToZZTo4L          );
    factory->AddBackgroundTree(bg_GluGluHToBB  , wGluGluHToBB          );
-   factory->AddBackgroundTree(bg_GluGluHToGG  , wGluGluHToGG          );
-   factory->AddBackgroundTree(bg_GluGluHToMuMu  , wGluGluHToMuMu          );
-   factory->AddBackgroundTree(bg_GluGluHToTauTau  , wGluGluHToTauTau          );
-   factory->AddBackgroundTree(bg_GluGluHToWWTo2L2Nu  , wGluGluHToWWTo2L2Nu          );
-   factory->AddBackgroundTree(bg_GluGluHToWWToLNuQQ  , wGluGluHToWWToLNuQQ          );
+   std::cout << __LINE__ << endl; 
+   factory->AddBackgroundTree(bg_GluGluHToGG  , wGluGluHToGG          );//0 events
+   // factory->AddBackgroundTree(bg_GluGluHToMuMu  , wGluGluHToMuMu          );
+   // factory->AddBackgroundTree(bg_GluGluHToTauTau  , wGluGluHToTauTau          );
+   // factory->AddBackgroundTree(bg_GluGluHToWWTo2L2Nu  , wGluGluHToWWTo2L2Nu          );
+   // factory->AddBackgroundTree(bg_GluGluHToWWToLNuQQ  , wGluGluHToWWToLNuQQ          );
     //41
-   factory->AddBackgroundTree(bg_VBFHToWWTo2L2Nu  , wVBFHToWWTo2L2Nu          );
-   factory->AddBackgroundTree(bg_VBFHToMuMu  , wVBFHToMuMu          );
-   factory->AddBackgroundTree(bg_VBFHToGG  , wVBFHToGG          );
+   // factory->AddBackgroundTree(bg_VBFHToWWTo2L2Nu  , wVBFHToWWTo2L2Nu          );
+   // factory->AddBackgroundTree(bg_VBFHToMuMu  , wVBFHToMuMu          );
+   // factory->AddBackgroundTree(bg_VBFHToGG  , wVBFHToGG          );[>}}}<]
    
    // To give different trees for training and testing, do as follows:
    //    factory->AddSignalTree( signalTrainingTree, signalTrainWeight, "Training" );
@@ -544,7 +569,7 @@ void TMVAClassification( TString myMethodList = "" )
    //                                         "NSigTrain=3000:NBkgTrain=3000:NSigTest=3000:NBkgTest=3000:SplitMode=Random:!V" );
    factory->PrepareTrainingAndTestTree( mycuts, mycutb,
                                         "nTrain_Signal=0:nTrain_Background=0:SplitMode=Random:NormMode=NumEvents:!V" );
-
+   //?how to prepare 70% and 30%?
    // ---- Book MVA methods
    //
    // Please lookup the various method configuration options in the corresponding cxx files, eg:
