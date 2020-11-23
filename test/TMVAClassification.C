@@ -210,36 +210,281 @@ void TMVAClassification( TString myMethodList = "" )
    // (it is also possible to use ASCII format as input -> see TMVA Users Guide)
    // TString fname = "./tmva_class_example.root";
    TString fname_signal = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/TTTT_TuneCUETP8M2T4_13TeV-amcatnlo-pythia8.root";
-   TString fname_bg     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/TTJets_TuneCUETP8M2T4_13TeV-amcatnloFXFX-pythia8.root";
+   //6
+   TString fname_bg_TTJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/TTJets_TuneCUETP8M2T4_13TeV-amcatnloFXFX-pythia8.root";
+   TString fname_bg_TTGJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/TTGJets_TuneCUETP8M1_13TeV-amcatnloFXFX-madspin-pythia8.root";
+   TString fname_bg_ttZJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ttZJets_13TeV_madgraphMLM-pythia8.root";
+   TString fname_bg_ttWJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ttWJets_13TeV_madgraphMLM.root";
+   TString fname_bg_ttH     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ttH_4f_ctcvcp_TuneCP5_13TeV_madgraph_pythia8.root";
+   // TString fname_bg_ttbb     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ttbb_4FS_ckm_amcatnlo_madspin_pythia8.root";
+    //12
+   TString fname_bg_WZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WZ_TuneCUETP8M1_13TeV-pythia8.root";
+   TString fname_bg_WWTo2L2Nu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WWTo2L2Nu_DoubleScattering_13TeV-pythia8.root";
+   TString fname_bg_WpWpJJ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WpWpJJ_EWK-QCD_TuneCUETP8M1_13TeV-madgraph-pythia8.root";
+   TString fname_bg_ZZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ZZ_TuneCUETP8M1_13TeV-pythia8.root";
+   TString fname_bg_WGJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WGJets_MonoPhoton_PtG-40to130_TuneCUETP8M1_13TeV-madgraph.root";
+   TString fname_bg_ZGJetsToLLG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ZGJetsToLLG_EW_LO_13TeV-sherpa.root";
+    //20
+   TString fname_bg_WWW     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WWW_4F_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_WWZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WWZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_WWG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WWG_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_ZZZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ZZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_WZZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_WZG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WZG_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_WGG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WGG_5f_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_ZGGJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ZGGJets_ZToHadOrNu_5f_LO_madgraph_pythia8.root";
+    //22
+   TString fname_bg_WJetsToLNu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root";
+
+   TString fname_bg_DYJetsToTauTau     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/DYJetsToTauTau_ForcedMuEleDecay_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8_ext1.root";
+    //28
+   TString fname_bg_tZq     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/tZq_ll_4f_ckm_NLO_TuneCP5_PSweights_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_ST_tW_antitop     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4.root";
+   TString fname_bg_ST_tW_top     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4.root";
+   TString fname_bg_TGJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/TGJets_TuneCUETP8M1_13TeV_amcatnlo_madspin_pythia8.root";
+   TString fname_bg_THW     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/THW_ctcvcp_HIncl_M125_TuneCP5_13TeV-madgraph-pythia8.root";
+   TString fname_bg_THQ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/THQ_ctcvcp_Hincl_13TeV-madgraph-pythia8_TuneCUETP8M1.root";
+    //38
+   TString fname_bg_VHToNonbb     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/VHToNonbb_M125_13TeV_amcatnloFXFX_madspin_pythia8.root";
+   TString fname_bg_ZHToTauTau     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ZHToTauTau_M125_13TeV_powheg_pythia8.root";
+   TString fname_bg_ZH_HToBB     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ZH_HToBB_ZToLL_M125_13TeV_powheg_pythia8.root";
+   TString fname_bg_GluGluHToZZTo4L     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToZZTo4L_M125_13TeV_powheg2_JHUgenV6_pythia8.root";
+   TString fname_bg_GluGluHToBB     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToBB_M125_13TeV_amcatnloFXFX_pythia8.root";
+   TString fname_bg_GluGluHToGG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToGG_M125_13TeV_amcatnloFXFX_pythia8.root";
+   TString fname_bg_GluGluHToMuMu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToMuMu_M-125_TuneCP5_PSweights_13TeV_powheg_pythia8.root";
+   TString fname_bg_GluGluHToTauTau     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root";
+   TString fname_bg_GluGluHToWWTo2L2Nu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToWWTo2L2Nu_M125_13TeV_powheg_JHUgen_pythia8.root";
+   TString fname_bg_GluGluHToWWToLNuQQ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToWWToLNuQQ_M125_13TeV_powheg_JHUGenV628_pythia8.root";
+    //41
+   TString fname_bg_VBFHToWWTo2L2Nu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/VBFHToWWTo2L2Nu_M125_13TeV_powheg_JHUgenv628_pythia8.root";
+   TString fname_bg_VBFHToMuMu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/VBFHToMuMu_M-125_TuneCP5_PSweights_13TeV_powheg_pythia8.root";
+   TString fname_bg_VBFHToGG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/VBFHToGG_M125_13TeV_amcatnlo_pythia8_v2.root";
+   // TString fname_bg_     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/";
    
    // if (gSystem->AccessPathName( fname ))  // file does not exist in local directory
       // gSystem->Exec("curl -O http://root.cern.ch/files/tmva_class_example.root");
    
    // TFile *input = TFile::Open( fname );
    TFile *input_signal = TFile::Open( fname_signal );
-   TFile *input_bg     = TFile::Open( fname_bg );
+
+   TFile *input_bg_TTJets     = TFile::Open( fname_bg_TTJets );
+   TFile *input_bg_TTGJets   = TFile::Open( fname_bg_TTGJets )     ;
+   TFile *input_bg_ttZJets   = TFile::Open( fname_bg_ttZJets )     ;
+   TFile *input_bg_ttWJets   = TFile::Open( fname_bg_ttWJets )     ;
+   TFile *input_bg_ttH   = TFile::Open( fname_bg_ttH )     ;
+   // TFile *input_bg_ttbb   = TFile::Open( fname_bg_ttbb )     ;
+    //12
+   TFile *input_bg_WZ   = TFile::Open( fname_bg_WZ )     ;
+   TFile *input_bg_WWTo2L2Nu   = TFile::Open( fname_bg_WWTo2L2Nu )     ;
+   TFile *input_bg_WpWpJJ   = TFile::Open( fname_bg_WpWpJJ )     ;
+   TFile *input_bg_ZZ   = TFile::Open( fname_bg_ZZ )     ;
+   TFile *input_bg_WGJets   = TFile::Open( fname_bg_WGJets )     ;
+   TFile *input_bg_ZGJetsToLLG   = TFile::Open( fname_bg_ZGJetsToLLG )     ;
+    //20
+   TFile *input_bg_WWW   = TFile::Open( fname_bg_WWW )     ;
+   TFile *input_bg_WWZ   = TFile::Open( fname_bg_WWZ )     ;
+   TFile *input_bg_WWG   = TFile::Open( fname_bg_WWG )     ;
+   TFile *input_bg_ZZZ   = TFile::Open( fname_bg_ZZZ )     ;
+   TFile *input_bg_WZZ   = TFile::Open( fname_bg_WZZ )     ;
+   TFile *input_bg_WZG   = TFile::Open( fname_bg_WZG )     ;
+   TFile *input_bg_WGG   = TFile::Open( fname_bg_WGG )     ;
+   TFile *input_bg_ZGGJets   = TFile::Open( fname_bg_ZGGJets )     ;
+    //22
+   TFile *input_bg_WJetsToLNu   = TFile::Open( fname_bg_WJetsToLNu )     ;
+
+   TFile *input_bg_DYJetsToTauTau   = TFile::Open( fname_bg_DYJetsToTauTau )     ;
+    //28
+   TFile *input_bg_tZq   = TFile::Open( fname_bg_tZq )     ;
+   TFile *input_bg_ST_tW_antitop   = TFile::Open( fname_bg_ST_tW_antitop )     ;
+   TFile *input_bg_ST_tW_top   = TFile::Open( fname_bg_ST_tW_top )     ;
+   TFile *input_bg_TGJets   = TFile::Open( fname_bg_TGJets )     ;
+   TFile *input_bg_THW   = TFile::Open( fname_bg_THW )     ;
+   TFile *input_bg_THQ   = TFile::Open( fname_bg_THQ )     ;
+    //38
+   TFile *input_bg_VHToNonbb   = TFile::Open( fname_bg_VHToNonbb )     ;
+   TFile *input_bg_ZHToTauTau   = TFile::Open( fname_bg_ZHToTauTau )     ;
+   TFile *input_bg_ZH_HToBB   = TFile::Open( fname_bg_ZH_HToBB )     ;
+   TFile *input_bg_GluGluHToZZTo4L   = TFile::Open( fname_bg_GluGluHToZZTo4L )     ;
+   TFile *input_bg_GluGluHToBB   = TFile::Open( fname_bg_GluGluHToBB )     ;
+   TFile *input_bg_GluGluHToGG   = TFile::Open( fname_bg_GluGluHToGG )     ;
+   TFile *input_bg_GluGluHToMuMu   = TFile::Open( fname_bg_GluGluHToMuMu )     ;
+   TFile *input_bg_GluGluHToTauTau   = TFile::Open( fname_bg_GluGluHToTauTau )     ;
+   TFile *input_bg_GluGluHToWWTo2L2Nu   = TFile::Open( fname_bg_GluGluHToWWTo2L2Nu )     ;
+   TFile *input_bg_GluGluHToWWToLNuQQ   = TFile::Open( fname_bg_GluGluHToWWToLNuQQ )     ;
+    //41
+   TFile *input_bg_VBFHToWWTo2L2Nu   = TFile::Open( fname_bg_VBFHToWWTo2L2Nu )     ;
+   TFile *input_bg_VBFHToMuMu   = TFile::Open( fname_bg_VBFHToMuMu )     ;
+   TFile *input_bg_VBFHToGG   = TFile::Open( fname_bg_VBFHToGG )     ;
    
    // std::cout << "--- TMVAClassification       : Using input file: " << input->GetName() << std::endl;
    std::cout << "--- TMVAClassification       : Using input file: " << input_signal->GetName() << std::endl;
-   std::cout << "--- TMVAClassification       : Using input file: " << input_bg->GetName() << std::endl;
+   std::cout << "--- TMVAClassification       : Using input file: " << input_bg_TTJets->GetName() << std::endl;
    
    // --- Register the training and test trees
 
    // TTree *signal     = (TTree*)input->Get("TreeS");
    // TTree *background = (TTree*)input->Get("TreeB");
    TTree *signal     = (TTree*)input_signal->Get("tree");
-   TTree *background = (TTree*)input_bg->Get("tree");
+
+   TTree *bg_TTJets = (TTree*)input_bg_TTJets->Get("tree");
+   TTree *bg_TTGJets  = (TTree*)input_bg_TTGJets->Get("tree")         ;
+   TTree *bg_ttZJets  = (TTree*)input_bg_ttZJets->Get("tree")         ;
+   TTree *bg_ttWJets  = (TTree*)input_bg_ttWJets->Get("tree")         ;
+   TTree *bg_ttH  = (TTree*)input_bg_ttH->Get("tree")         ;
+   // TTree *bg_ttbb  = (TTree*)input_bg_ttbb->Get("tree")         ;
+    //12
+   TTree *bg_WZ  = (TTree*)input_bg_WZ->Get("tree")         ;
+   TTree *bg_WWTo2L2Nu  = (TTree*)input_bg_WWTo2L2Nu->Get("tree")         ;
+   TTree *bg_WpWpJJ  = (TTree*)input_bg_WpWpJJ->Get("tree")         ;
+   TTree *bg_ZZ  = (TTree*)input_bg_ZZ->Get("tree")         ;
+   TTree *bg_WGJets  = (TTree*)input_bg_WGJets->Get("tree")         ;
+   TTree *bg_ZGJetsToLLG  = (TTree*)input_bg_ZGJetsToLLG->Get("tree")         ;
+    //20
+   TTree *bg_WWW  = (TTree*)input_bg_WWW->Get("tree")         ;
+   TTree *bg_WWZ  = (TTree*)input_bg_WWZ->Get("tree")         ;
+   TTree *bg_WWG  = (TTree*)input_bg_WWG->Get("tree")         ;
+   TTree *bg_ZZZ  = (TTree*)input_bg_ZZZ->Get("tree")         ;
+   TTree *bg_WZZ  = (TTree*)input_bg_WZZ->Get("tree")         ;
+   TTree *bg_WZG  = (TTree*)input_bg_WZG->Get("tree")         ;
+   TTree *bg_WGG  = (TTree*)input_bg_WGG->Get("tree")         ;
+   TTree *bg_ZGGJets  = (TTree*)input_bg_ZGGJets->Get("tree")         ;
+    //22
+   TTree *bg_WJetsToLNu  = (TTree*)input_bg_WJetsToLNu->Get("tree")         ;
+
+   TTree *bg_DYJetsToTauTau  = (TTree*)input_bg_DYJetsToTauTau->Get("tree")         ;
+    //28
+   TTree *bg_tZq  = (TTree*)input_bg_tZq->Get("tree")         ;
+   TTree *bg_ST_tW_antitop  = (TTree*)input_bg_ST_tW_antitop->Get("tree")         ;
+   TTree *bg_ST_tW_top  = (TTree*)input_bg_ST_tW_top->Get("tree")         ;
+   TTree *bg_TGJets  = (TTree*)input_bg_TGJets->Get("tree")         ;
+   TTree *bg_THW  = (TTree*)input_bg_THW->Get("tree")         ;
+   TTree *bg_THQ  = (TTree*)input_bg_THQ->Get("tree")         ;
+    //38
+   TTree *bg_VHToNonbb  = (TTree*)input_bg_VHToNonbb->Get("tree")         ;
+   TTree *bg_ZHToTauTau  = (TTree*)input_bg_ZHToTauTau->Get("tree")         ;
+   TTree *bg_ZH_HToBB  = (TTree*)input_bg_ZH_HToBB->Get("tree")         ;
+   TTree *bg_GluGluHToZZTo4L  = (TTree*)input_bg_GluGluHToZZTo4L->Get("tree")         ;
+   TTree *bg_GluGluHToBB  = (TTree*)input_bg_GluGluHToBB->Get("tree")         ;
+   TTree *bg_GluGluHToGG  = (TTree*)input_bg_GluGluHToGG->Get("tree")         ;
+   TTree *bg_GluGluHToMuMu  = (TTree*)input_bg_GluGluHToMuMu->Get("tree")         ;
+   TTree *bg_GluGluHToTauTau  = (TTree*)input_bg_GluGluHToTauTau->Get("tree")         ;
+   TTree *bg_GluGluHToWWTo2L2Nu  = (TTree*)input_bg_GluGluHToWWTo2L2Nu->Get("tree")         ;
+   TTree *bg_GluGluHToWWToLNuQQ  = (TTree*)input_bg_GluGluHToWWToLNuQQ->Get("tree")         ;
+    //41
+   TTree *bg_VBFHToWWTo2L2Nu  = (TTree*)input_bg_VBFHToWWTo2L2Nu->Get("tree")         ;
+   TTree *bg_VBFHToMuMu  = (TTree*)input_bg_VBFHToMuMu->Get("tree")         ;
+   TTree *bg_VBFHToGG  = (TTree*)input_bg_VBFHToGG->Get("tree")         ;
    
    // global event weights per tree (see below for setting event-wise weights)
    // Double_t signalWeight     = 1.0;
    // Double_t backgroundWeight = 1.0;
    Double_t LUMI = 35900;
    Double_t signalWeight     = (LUMI*0.01197)/(1709406-704054);
-   Double_t backgroundWeight =  (LUMI*746.7)/(29509487-14335648);
-   
+   // Double_t bgWeight_TTJets =  (LUMI*746.7)/(29509487-14335648);
+    //6
+    Double_t wTTJets = (LUMI*746.7)/(29509487-14335648);//746.7 // TTJets_TuneCUETP8M2T4_13TeV-amcatnloFXFX-pythia8.root:  Positive:29509487  Negtive:14335648
+    Double_t wTTGJets = (LUMI*3.773)/(3224372-1646539);// TTGJets_TuneCUETP8M1_13TeV-amcatnloFXFX-madspin-pythia8.root:  Positive:3224372  Negtive:1646539  ;
+    Double_t wttZJets = (LUMI*0.6559)/(9883364-0) ;// ttZJets_13TeV_madgraphMLM-pythia8.root:  Positive:9883364  Negtive:0      //Special care is taken when scaling the ttZ background to the cr
+    Double_t wttWJets = (LUMI*0.2014)/(6700440-0);// ttWJets_13TeV_madgraphMLM.root:  Positive:6700440  Negtive:0  ;
+    Double_t wttH= (LUMI*0.3372)/(9566400-0);// ttH_4f_ctcvcp_TuneCP5_13TeV_madgraph_pythia8.root:  Positive:9566400  Negtive:0  ;
+    // Double_t wttbb= (LUMI*1.393)/(2556073-1427835);// ttbb_4FS_ckm_amcatnlo_madspin_pythia8.root:  Positive:2556073  Negtive:1427835  ;
+    //12
+    Double_t wWZ= (LUMI*2.343)/(2997571-0);// WZ_TuneCUETP8M1_13TeV-pythia8.root:  Positive:2997571  Negtive:0  ;
+    Double_t wWWTo2L2Nu = (LUMI*0.1697)/(999367-0); // WWTo2L2Nu_DoubleScattering_13TeV-pythia8.root:  Positive:999367  Negtive:0  ;
+    Double_t wWpWpJJ= (LUMI*0.05390)/(149681-0);// WpWpJJ_EWK-QCD_TuneCUETP8M1_13TeV-madgraph-pythia8.root:  Positive:149681  Negtive:0  ;
+    Double_t wZZ  = (LUMI*1.016)/(998034-0);// ZZ_TuneCUETP8M1_13TeV-pythia8.root:  Positive:998034  Negtive:0  ;
+    Double_t wWGJets = (LUMI*1.269)/(5077680-0);// WGJets_MonoPhoton_PtG-40to130_TuneCUETP8M1_13TeV-madgraph.root:  Positive:5077680  Negtive:0  ;
+    Double_t wZGJetsToLLG = (LUMI*0.1319)/(498406-0);// ZGJetsToLLG_EW_LO_13TeV-sherpa.root:  Positive:498406  Negtive:394  ;
+    //20
+    Double_t wWWW= (LUMI*0.2086)/(225269-14731);// WWW_4F_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root:  Positive:225269  Negtive:14731  ;
+    Double_t wWWZ= (LUMI*0.1651)/(235734-14266);// WWZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root:  Positive:235734  Negtive:14266  ;
+    Double_t wWWG = (LUMI*0.2147)/(913515-85885);// WWG_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root:  Positive:913515  Negtive:85885  ;
+    Double_t wZZZ= (LUMI*0.01398)/(231217-18020);// ZZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root:  Positive:231217  Negtive:18020  ;
+    Double_t wWZZ= (LUMI*0.05565)/(231583-15217);// WZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root:  Positive:231583  Negtive:15217  ;
+    Double_t wWZG= (LUMI*0.04123)/(921527-76673);// WZG_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root:  Positive:921527  Negtive:76673  ;
+    Double_t wWGG =(LUMI*1.819)/(889832-110168); // WGG_5f_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root:  Positive:889832  Negtive:110168  ;
+    Double_t wZGGJets= (LUMI*0.3717)/(291922-0);// ZGGJets_ZToHadOrNu_5f_LO_madgraph_pythia8.root:  Positive:291922  Negtive:0  ;
+    //22
+    Double_t wWJetsToLNu= (LUMI*50300)/(29514020-0) ;// WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root:  Positive:29514020  Negtive:0  ;
+    Double_t wDYJetsToTauTau= (LUMI*1983)/(21891344-4380454);// DYJetsToTauTau_ForcedMuEleDecay_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8_ext1.root
+    //28
+    Double_t wtZq_ll= (LUMI*0.07358)/(8784890-5147710);// tZq_ll_4f_ckm_NLO_TuneCP5_PSweights_13TeV-amcatnlo-pythia8.root:  Positive:8784890  Negtive:5147710  ;
+    Double_t wST_tW_antitop= (LUMI*38.06)/(418378-0);// ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4.root:  Positive:418378  Negtive:0  ;
+    Double_t wST_tW_top= (LUMI*38.09)/(992024-0);//  ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4.root:  Positive:992024  Negtive:0  ;
+    Double_t wTGJets= (LUMI*2.967)/(933719-623277);// TGJets_TuneCUETP8M1_13TeV_amcatnlo_madspin_pythia8.root:  Positive:933719  Negtive:623277  ;
+    Double_t wTHW= (LUMI*0.1467)/(4995329-2967);// THW_ctcvcp_HIncl_M125_TuneCP5_13TeV-madgraph-pythia8.root:  Positive:4995329  Negtive:2967  ;
+    Double_t wTHQ= (LUMI*0.8816)/(9829911-0);// THQ_ctcvcp_Hincl_13TeV-madgraph-pythia8_TuneCUETP8M1.root:  Positive:9829911  Negtive:0  ;
+
+    //38
+    Double_t wVHToNonbb= (LUMI*2.137)/(799942-297663);// VHToNonbb_M125_13TeV_amcatnloFXFX_madspin_pythia8.root:  Positive:799942  Negtive:297663  ;
+    Double_t wZHToTauTau= (LUMI*0.7524)/(581490-18313);// ZHToTauTau_M125_13TeV_powheg_pythia8.root:  Positive:581490  Negtive:18313  ;
+    Double_t wZH_HToBB_ZToLL= (LUMI*0.07523)/(1920440-59420);// ZH_HToBB_ZToLL_M125_13TeV_powheg_pythia8.root:  Positive:1920440  Negtive:59420  ;
+    Double_t wGluGluHToZZTo4L= (LUMI*2.999)/(999800-0);// GluGluHToZZTo4L_M125_13TeV_powheg2_JHUgenV6_pythia8.root:  Positive:999800  Negtive:0  ;
+    Double_t wGluGluHToBB= (LUMI*32.10)/(2946318-853055);// GluGluHToBB_M125_13TeV_amcatnloFXFX_pythia8.root:  Positive:2946318  Negtive:853055  ;
+    Double_t wGluGluHToGG= (LUMI*31.98)/(335240-96369);// GluGluHToGG_M125_13TeV_amcatnloFXFX_pythia8.root:  Positive:335240  Negtive:96369  ;
+    Double_t wGluGluHToMuMu= (LUMI*29.99)/(1991200-0);// GluGluHToMuMu_M-125_TuneCP5_PSweights_13TeV_powheg_pythia8.root:  Positive:1991200  Negtive:0  ;
+    Double_t wGluGluHToTauTau= (LUMI*30.52)/(1497800-0);// GluGluHToTauTau_M125_13TeV_powheg_pythia8.root:  Positive:1497800  Negtive:0  ;
+    Double_t wGluGluHToWWTo2L2Nu= (LUMI*30.52)/(492200-0);// GluGluHToWWTo2L2Nu_M125_13TeV_powheg_JHUgen_pythia8.root:  Positive:492200  Negtive:0  ;
+    Double_t wGluGluHToWWToLNuQQ= (LUMI*29.99)/(198000-0);// GluGluHToWWToLNuQQ_M125_13TeV_powheg_JHUGenV628_pythia8.root:  Positive:198000  Negtive:0  ;
+    //41
+    Double_t wVBFHToWWTo2L2Nu= (LUMI*3.769)/(99931-69);// VBFHToWWTo2L2Nu_M125_13TeV_powheg_JHUgenv628_pythia8.root:  Positive:99931  Negtive:69  ;
+    Double_t wVBFHToMuMu= (LUMI*0.000823)/(996835-765);// VBFHToMuMu_M-125_TuneCP5_PSweights_13TeV_powheg_pythia8.root:  Positive:996835  Negtive:765  ;
+    Double_t wVBFHToGG= (LUMI*3.992)/(639138-338962);// VBFHToGG_M125_13TeV_amcatnlo_pythia8_v2.root:  Positive:639138  Negtive:338962  ;
+
+
+
    // You can add an arbitrary number of signal or background trees
    factory->AddSignalTree    ( signal,     signalWeight     );
-   factory->AddBackgroundTree( background, backgroundWeight );
+   factory->AddBackgroundTree( bg_TTJets, bgWeight_TTJets );
+
+   factory->AddBackgroundTree(bg_TTJets , wTTJets );
+   factory->AddBackgroundTree(bg_TTGJets  , wTTGJets          );
+   factory->AddBackgroundTree(bg_ttZJets  , wttZJets          );
+   factory->AddBackgroundTree(bg_ttWJets  , wttWJets          );
+   factory->AddBackgroundTree(bg_ttH  , wttH          );
+   // factory->AddBackgroundTree(bg_ttbb  , wttbb          );
+    //12
+   factory->AddBackgroundTree(bg_WZ  , wWZ          );
+   factory->AddBackgroundTree(bg_WWTo2L2Nu  , wWWTo2L2Nu          );
+   factory->AddBackgroundTree(bg_WpWpJJ  , wWpWpJJ          );
+   factory->AddBackgroundTree(bg_ZZ  , wZZ          );
+   factory->AddBackgroundTree(bg_WGJets  , wWGJets          );
+   factory->AddBackgroundTree(bg_ZGJetsToLLG  , wZGJetsToLLG          );
+    //20
+   factory->AddBackgroundTree(bg_WWW  , wWWW          );
+   factory->AddBackgroundTree(bg_WWZ  , wWWZ          );
+   factory->AddBackgroundTree(bg_WWG  , wWWG          );
+   factory->AddBackgroundTree(bg_ZZZ  , wZZZ          );
+   factory->AddBackgroundTree(bg_WZZ  , wWZZ          );
+   factory->AddBackgroundTree(bg_WZG  , wWZG          );
+   factory->AddBackgroundTree(bg_WGG  , wWGG          );
+   factory->AddBackgroundTree(bg_ZGGJets  , wZGGJets          );
+    //22
+   factory->AddBackgroundTree(bg_WJetsToLNu  , wWJetsToLNu          );
+
+   factory->AddBackgroundTree(bg_DYJetsToTauTau  , wDYJetsToTauTau          );
+    //28
+   factory->AddBackgroundTree(bg_tZq  , wtZq          );
+   factory->AddBackgroundTree(bg_ST_tW_antitop  , wST_tW_antitop          );
+   factory->AddBackgroundTree(bg_ST_tW_top  , wST_tW_top          );
+   factory->AddBackgroundTree(bg_TGJets  , wTGJets          );
+   factory->AddBackgroundTree(bg_THW  , wTHW          );
+   factory->AddBackgroundTree(bg_THQ  , wTHQ          );
+    //38
+   factory->AddBackgroundTree(bg_VHToNonbb  , wVHToNonbb          );
+   factory->AddBackgroundTree(bg_ZHToTauTau  , wZHToTauTau          );
+   factory->AddBackgroundTree(bg_ZH_HToBB  , wZH_HToBB          );
+   factory->AddBackgroundTree(bg_GluGluHToZZTo4L  , wGluGluHToZZTo4L          );
+   factory->AddBackgroundTree(bg_GluGluHToBB  , wGluGluHToBB          );
+   factory->AddBackgroundTree(bg_GluGluHToGG  , wGluGluHToGG          );
+   factory->AddBackgroundTree(bg_GluGluHToMuMu  , wGluGluHToMuMu          );
+   factory->AddBackgroundTree(bg_GluGluHToTauTau  , wGluGluHToTauTau          );
+   factory->AddBackgroundTree(bg_GluGluHToWWTo2L2Nu  , wGluGluHToWWTo2L2Nu          );
+   factory->AddBackgroundTree(bg_GluGluHToWWToLNuQQ  , wGluGluHToWWToLNuQQ          );
+    //41
+   factory->AddBackgroundTree(bg_VBFHToWWTo2L2Nu  , wVBFHToWWTo2L2Nu          );
+   factory->AddBackgroundTree(bg_VBFHToMuMu  , wVBFHToMuMu          );
+   factory->AddBackgroundTree(bg_VBFHToGG  , wVBFHToGG          );
    
    // To give different trees for training and testing, do as follows:
    //    factory->AddSignalTree( signalTrainingTree, signalTrainWeight, "Training" );
