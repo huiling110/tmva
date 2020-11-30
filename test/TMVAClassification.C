@@ -163,7 +163,7 @@ void TMVAClassification( TString myMethodList = "" )
    // TString outfileName( "TMVA.root" );
    // TString outfileName( "TMVA_study.root" );
    // TString outfileName( "TMVA_1Tau0L.root" );
-   TString outfileName( "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/TMVA_1Tau0L_v2.root" );
+   TString outfileName( "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/1tau0lTausT/TMVA_1Tau0L_v2.root" );
    TFile* outputFile = TFile::Open( outfileName, "RECREATE" );
 
    // Create the factory object. Later you can choose the methods
@@ -183,7 +183,7 @@ void TMVAClassification( TString myMethodList = "" )
    // (please check "src/Config.h" to see all available global options)
    //    (TMVA::gConfig().GetVariablePlotting()).fTimesRMS = 8.0;
       // (TMVA::gConfig().GetIONames()).fWeightFileDir = "myWeightDirectory";
-      (TMVA::gConfig().GetIONames()).fWeightFileDir = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/weight1Tau0L_v2";
+      (TMVA::gConfig().GetIONames()).fWeightFileDir = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/1tau0lTausT/weight1Tau0L_v2";
 
    // Define the input variables that shall be used for the MVA training
    // note that you may also use variable expressions, such as: "3*var1/var2*abs(var3)"
@@ -554,8 +554,8 @@ void TMVAClassification( TString myMethodList = "" )
    // factory->SetBackgroundWeightExpression( "weight" );//bg tree has a weight branch
 
    // Apply additional cuts on the signal and background samples (can be different)
-   TCut mycuts = "(jetsL_number>=8)&&(bjetsM_num>=2)&&(tausT_number==1)&&(1Tau0L_v2)"; // for example: TCut mycuts = "abs(var1)<0.5 && abs(var2-0.5)<1";
-   TCut mycutb = "(jetsL_number>=8)&&(bjetsM_num>=2)&&(tausT_number==1)&&(1Tau0L_v2)"; // for example: TCut mycutb = "abs(var1)<0.5";
+   TCut mycuts = "jetsL_number>=8 && bjetsM_num>=2 && tausT_number==1 && channel_1Tau0L_v2==1"; // for example: TCut mycuts = "abs(var1)<0.5 && abs(var2-0.5)<1";
+   TCut mycutb = "(jetsL_number>=8)&&(bjetsM_num>=2)&&(tausT_number==1)&&(channel_1Tau0L_v2==1)"; // for example: TCut mycutb = "abs(var1)<0.5";
 
    // Tell the factory how to use the training and testing events
    //
@@ -577,7 +577,7 @@ void TMVAClassification( TString myMethodList = "" )
 
    // Cut optimisation
    if (Use["Cuts"])
-      factory->BookMethod( TMVA::Types::kCuts, "Cuts",
+      factory->BookMethod( TMVA::Types::kCuts, "Cuts",/*{{{*/
                            "!H:!V:FitMethod=MC:EffSel:SampleSize=200000:VarProp=FSmart" );
 
    if (Use["CutsD"])
@@ -743,7 +743,7 @@ void TMVAClassification( TString myMethodList = "" )
    // RuleFit -- TMVA implementation of Friedman's method
    if (Use["RuleFit"])
       factory->BookMethod( TMVA::Types::kRuleFit, "RuleFit",
-                           "H:!V:RuleFitModule=RFTMVA:Model=ModRuleLinear:MinImp=0.001:RuleMinDist=0.001:NTrees=20:fEventsMin=0.01:fEventsMax=0.5:GDTau=-1.0:GDTauPrec=0.01:GDStep=0.01:GDNSteps=10000:GDErrScale=1.02" );
+                           "H:!V:RuleFitModule=RFTMVA:Model=ModRuleLinear:MinImp=0.001:RuleMinDist=0.001:NTrees=20:fEventsMin=0.01:fEventsMax=0.5:GDTau=-1.0:GDTauPrec=0.01:GDStep=0.01:GDNSteps=10000:GDErrScale=1.02" );/*}}}*/
 
    // For an example of the category classifier usage, see: TMVAClassificationCategory
 
