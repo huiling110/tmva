@@ -163,7 +163,7 @@ void TMVAClassification( TString myMethodList = "" )
    // TString outfileName( "TMVA.root" );
    // TString outfileName( "TMVA_study.root" );
    // TString outfileName( "TMVA_1Tau0L.root" );
-   TString outfileName( "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/TMVA_1Tau0L_v1.root" );
+   TString outfileName( "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/TMVA_1Tau0L_v2.root" );
    TFile* outputFile = TFile::Open( outfileName, "RECREATE" );
 
    // Create the factory object. Later you can choose the methods
