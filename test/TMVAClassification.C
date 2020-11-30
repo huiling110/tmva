@@ -458,9 +458,7 @@ void TMVAClassification( TString myMethodList = "" )
 
    // You can add an arbitrary number of signal or background trees
    factory->AddSignalTree    ( signal,     signalWeight     );
-   // factory->AddBackgroundTree( bg_TTJets, bgWeight_TTJets );
    /*{{{*/
-
    factory->AddBackgroundTree(bg_TTJets , wTTJets );
    factory->AddBackgroundTree(bg_TTGJets  , wTTGJets          );
    factory->AddBackgroundTree(bg_ttZJets  , wttZJets          );
@@ -500,7 +498,7 @@ void TMVAClassification( TString myMethodList = "" )
    factory->AddBackgroundTree(bg_ZH_HToBB  , wZH_HToBB_ZToLL          );// not consistent
    factory->AddBackgroundTree(bg_GluGluHToZZTo4L  , wGluGluHToZZTo4L          );
    factory->AddBackgroundTree(bg_GluGluHToBB  , wGluGluHToBB          );
-   std::cout << __LINE__ << endl; 
+   // std::cout << __LINE__ << endl;
    factory->AddBackgroundTree(bg_GluGluHToGG  , wGluGluHToGG          );//0 events
    // factory->AddBackgroundTree(bg_GluGluHToMuMu  , wGluGluHToMuMu          );
    // factory->AddBackgroundTree(bg_GluGluHToTauTau  , wGluGluHToTauTau          );
@@ -556,8 +554,8 @@ void TMVAClassification( TString myMethodList = "" )
    // factory->SetBackgroundWeightExpression( "weight" );//bg tree has a weight branch
 
    // Apply additional cuts on the signal and background samples (can be different)
-   TCut mycuts = ""; // for example: TCut mycuts = "abs(var1)<0.5 && abs(var2-0.5)<1";
-   TCut mycutb = ""; // for example: TCut mycutb = "abs(var1)<0.5";
+   TCut mycuts = "(jetsL_number>=8)&&(bjetsM_num>=2)&&(tausT_number==1)&&(1Tau0L_v2)"; // for example: TCut mycuts = "abs(var1)<0.5 && abs(var2-0.5)<1";
+   TCut mycutb = "(jetsL_number>=8)&&(bjetsM_num>=2)&&(tausT_number==1)&&(1Tau0L_v2)"; // for example: TCut mycutb = "abs(var1)<0.5";
 
    // Tell the factory how to use the training and testing events
    //
