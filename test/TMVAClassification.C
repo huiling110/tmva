@@ -183,7 +183,7 @@ void TMVAClassification( TString myMethodList = "" )
    // (please check "src/Config.h" to see all available global options)
    //    (TMVA::gConfig().GetVariablePlotting()).fTimesRMS = 8.0;
       // (TMVA::gConfig().GetIONames()).fWeightFileDir = "myWeightDirectory";
-      (TMVA::gConfig().GetIONames()).fWeightFileDir = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/weight1Tau0L_v1";
+      (TMVA::gConfig().GetIONames()).fWeightFileDir = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/weight1Tau0L_v2";
 
    // Define the input variables that shall be used for the MVA training
    // note that you may also use variable expressions, such as: "3*var1/var2*abs(var3)"
@@ -232,57 +232,57 @@ void TMVAClassification( TString myMethodList = "" )
    // Read training and test data
    // (it is also possible to use ASCII format as input -> see TMVA Users Guide)
    // TString fname = "./tmva_class_example.root";
-   TString fname_signal = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/TTTT_TuneCUETP8M2T4_13TeV-amcatnlo-pythia8.root";
+   TString fname_signal = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/TTTT_TuneCUETP8M2T4_13TeV-amcatnlo-pythia8.root";
    //6
-   TString fname_bg_TTJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/TTJets_TuneCUETP8M2T4_13TeV-amcatnloFXFX-pythia8.root";/*{{{*/
-   TString fname_bg_TTGJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/TTGJets_TuneCUETP8M1_13TeV-amcatnloFXFX-madspin-pythia8.root";
-   TString fname_bg_ttZJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ttZJets_13TeV_madgraphMLM-pythia8.root";
-   TString fname_bg_ttWJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ttWJets_13TeV_madgraphMLM.root";
-   TString fname_bg_ttH     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ttH_4f_ctcvcp_TuneCP5_13TeV_madgraph_pythia8.root";
-   // TString fname_bg_ttbb     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ttbb_4FS_ckm_amcatnlo_madspin_pythia8.root";
+   TString fname_bg_TTJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/TTJets_TuneCUETP8M2T4_13TeV-amcatnloFXFX-pythia8.root";/*{{{*/
+   TString fname_bg_TTGJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/TTGJets_TuneCUETP8M1_13TeV-amcatnloFXFX-madspin-pythia8.root";
+   TString fname_bg_ttZJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/ttZJets_13TeV_madgraphMLM-pythia8.root";
+   TString fname_bg_ttWJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/ttWJets_13TeV_madgraphMLM.root";
+   TString fname_bg_ttH     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/ttH_4f_ctcvcp_TuneCP5_13TeV_madgraph_pythia8.root";
+   // TString fname_bg_ttbb     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/ttbb_4FS_ckm_amcatnlo_madspin_pythia8.root";
     //12
-   TString fname_bg_WZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WZ_TuneCUETP8M1_13TeV-pythia8.root";
-   // TString fname_bg_WWTo2L2Nu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WWTo2L2Nu_DoubleScattering_13TeV-pythia8.root";
-   TString fname_bg_WpWpJJ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WpWpJJ_EWK-QCD_TuneCUETP8M1_13TeV-madgraph-pythia8.root";
-   TString fname_bg_ZZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ZZ_TuneCUETP8M1_13TeV-pythia8.root";
-   TString fname_bg_WGJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WGJets_MonoPhoton_PtG-40to130_TuneCUETP8M1_13TeV-madgraph.root";
-   TString fname_bg_ZGJetsToLLG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ZGJetsToLLG_EW_LO_13TeV-sherpa.root";
+   TString fname_bg_WZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/WZ_TuneCUETP8M1_13TeV-pythia8.root";
+   // TString fname_bg_WWTo2L2Nu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/WWTo2L2Nu_DoubleScattering_13TeV-pythia8.root";
+   TString fname_bg_WpWpJJ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/WpWpJJ_EWK-QCD_TuneCUETP8M1_13TeV-madgraph-pythia8.root";
+   TString fname_bg_ZZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/ZZ_TuneCUETP8M1_13TeV-pythia8.root";
+   TString fname_bg_WGJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/WGJets_MonoPhoton_PtG-40to130_TuneCUETP8M1_13TeV-madgraph.root";
+   TString fname_bg_ZGJetsToLLG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/ZGJetsToLLG_EW_LO_13TeV-sherpa.root";
     //20
-   TString fname_bg_WWW     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WWW_4F_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
-   TString fname_bg_WWZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WWZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
-   TString fname_bg_WWG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WWG_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
-   TString fname_bg_ZZZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ZZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
-   TString fname_bg_WZZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
-   TString fname_bg_WZG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WZG_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
-   TString fname_bg_WGG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WGG_5f_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
-   TString fname_bg_ZGGJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ZGGJets_ZToHadOrNu_5f_LO_madgraph_pythia8.root";
+   TString fname_bg_WWW     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/WWW_4F_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_WWZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/WWZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_WWG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/WWG_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_ZZZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/ZZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_WZZ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/WZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_WZG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/WZG_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_WGG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/WGG_5f_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_ZGGJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/ZGGJets_ZToHadOrNu_5f_LO_madgraph_pythia8.root";
     //22
-   TString fname_bg_WJetsToLNu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root";
+   TString fname_bg_WJetsToLNu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.root";
 
-   TString fname_bg_DYJetsToTauTau     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/DYJetsToTauTau_ForcedMuEleDecay_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8_ext1.root";
+   TString fname_bg_DYJetsToTauTau     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/DYJetsToTauTau_ForcedMuEleDecay_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8_ext1.root";
     //28
-   TString fname_bg_tZq_ll     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/tZq_ll_4f_ckm_NLO_TuneCP5_PSweights_13TeV-amcatnlo-pythia8.root";
-   TString fname_bg_ST_tW_antitop     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4.root";
-   TString fname_bg_ST_tW_top     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4.root";
-   TString fname_bg_TGJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/TGJets_TuneCUETP8M1_13TeV_amcatnlo_madspin_pythia8.root";
-   TString fname_bg_THW     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/THW_ctcvcp_HIncl_M125_TuneCP5_13TeV-madgraph-pythia8.root";
-   TString fname_bg_THQ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/THQ_ctcvcp_Hincl_13TeV-madgraph-pythia8_TuneCUETP8M1.root";
+   TString fname_bg_tZq_ll     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/tZq_ll_4f_ckm_NLO_TuneCP5_PSweights_13TeV-amcatnlo-pythia8.root";
+   TString fname_bg_ST_tW_antitop     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4.root";
+   TString fname_bg_ST_tW_top     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M2T4.root";
+   TString fname_bg_TGJets     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/TGJets_TuneCUETP8M1_13TeV_amcatnlo_madspin_pythia8.root";
+   TString fname_bg_THW     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/THW_ctcvcp_HIncl_M125_TuneCP5_13TeV-madgraph-pythia8.root";
+   TString fname_bg_THQ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/THQ_ctcvcp_Hincl_13TeV-madgraph-pythia8_TuneCUETP8M1.root";
     //38
-   TString fname_bg_VHToNonbb     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/VHToNonbb_M125_13TeV_amcatnloFXFX_madspin_pythia8.root";
-   TString fname_bg_ZHToTauTau     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ZHToTauTau_M125_13TeV_powheg_pythia8.root";
-   TString fname_bg_ZH_HToBB     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/ZH_HToBB_ZToLL_M125_13TeV_powheg_pythia8.root";
-   TString fname_bg_GluGluHToZZTo4L     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToZZTo4L_M125_13TeV_powheg2_JHUgenV6_pythia8.root";
-   TString fname_bg_GluGluHToBB     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToBB_M125_13TeV_amcatnloFXFX_pythia8.root";
-   TString fname_bg_GluGluHToGG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToGG_M125_13TeV_amcatnloFXFX_pythia8.root";
-   // TString fname_bg_GluGluHToMuMu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToMuMu_M-125_TuneCP5_PSweights_13TeV_powheg_pythia8.root";
-   // TString fname_bg_GluGluHToTauTau     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root";
-   // TString fname_bg_GluGluHToWWTo2L2Nu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToWWTo2L2Nu_M125_13TeV_powheg_JHUgen_pythia8.root";
-   // TString fname_bg_GluGluHToWWToLNuQQ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/GluGluHToWWToLNuQQ_M125_13TeV_powheg_JHUGenV628_pythia8.root";
+   TString fname_bg_VHToNonbb     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/VHToNonbb_M125_13TeV_amcatnloFXFX_madspin_pythia8.root";
+   TString fname_bg_ZHToTauTau     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/ZHToTauTau_M125_13TeV_powheg_pythia8.root";
+   TString fname_bg_ZH_HToBB     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/ZH_HToBB_ZToLL_M125_13TeV_powheg_pythia8.root";
+   TString fname_bg_GluGluHToZZTo4L     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/GluGluHToZZTo4L_M125_13TeV_powheg2_JHUgenV6_pythia8.root";
+   TString fname_bg_GluGluHToBB     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/GluGluHToBB_M125_13TeV_amcatnloFXFX_pythia8.root";
+   TString fname_bg_GluGluHToGG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/GluGluHToGG_M125_13TeV_amcatnloFXFX_pythia8.root";
+   // TString fname_bg_GluGluHToMuMu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/GluGluHToMuMu_M-125_TuneCP5_PSweights_13TeV_powheg_pythia8.root";
+   // TString fname_bg_GluGluHToTauTau     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/GluGluHToTauTau_M125_13TeV_powheg_pythia8.root";
+   // TString fname_bg_GluGluHToWWTo2L2Nu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/GluGluHToWWTo2L2Nu_M125_13TeV_powheg_JHUgen_pythia8.root";
+   // TString fname_bg_GluGluHToWWToLNuQQ     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/GluGluHToWWToLNuQQ_M125_13TeV_powheg_JHUGenV628_pythia8.root";
     //41
-   // TString fname_bg_VBFHToWWTo2L2Nu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/VBFHToWWTo2L2Nu_M125_13TeV_powheg_JHUgenv628_pythia8.root";
-   // TString fname_bg_VBFHToMuMu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/VBFHToMuMu_M-125_TuneCP5_PSweights_13TeV_powheg_pythia8.root";
-   // TString fname_bg_VBFHToGG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/VBFHToGG_M125_13TeV_amcatnlo_pythia8_v2.root";[>}}}<]
-   // TString fname_bg_     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/forMVA/1tau0lTausT/NoJEC/";
+   // TString fname_bg_VBFHToWWTo2L2Nu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/VBFHToWWTo2L2Nu_M125_13TeV_powheg_JHUgenv628_pythia8.root";
+   // TString fname_bg_VBFHToMuMu     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/VBFHToMuMu_M-125_TuneCP5_PSweights_13TeV_powheg_pythia8.root";
+   // TString fname_bg_VBFHToGG     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/VBFHToGG_M125_13TeV_amcatnlo_pythia8_v2.root";[>}}}<]
+   // TString fname_bg_     = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/v10_ObjectRemoval/NoJEC/";
    
    // if (gSystem->AccessPathName( fname ))  // file does not exist in local directory
       // gSystem->Exec("curl -O http://root.cern.ch/files/tmva_class_example.root");
