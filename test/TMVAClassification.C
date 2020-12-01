@@ -163,7 +163,8 @@ void TMVAClassification( TString myMethodList = "" )
    // TString outfileName( "TMVA.root" );
    // TString outfileName( "TMVA_study.root" );
    // TString outfileName( "TMVA_1Tau0L.root" );
-   TString outfileName( "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/1tau0lTausT/TMVA_1Tau0L_v2.root" );
+   TString outfileName( "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/1tau0lTausT/TMVA_1Tau0L_v2_correctVariableName.root" );
+   // TString outfileName( "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/1tau0lTausT/TMVA_1Tau0L_v3_removeCorrelation.root" );
    TFile* outputFile = TFile::Open( outfileName, "RECREATE" );
 
    // Create the factory object. Later you can choose the methods
@@ -183,7 +184,7 @@ void TMVAClassification( TString myMethodList = "" )
    // (please check "src/Config.h" to see all available global options)
    //    (TMVA::gConfig().GetVariablePlotting()).fTimesRMS = 8.0;
       // (TMVA::gConfig().GetIONames()).fWeightFileDir = "myWeightDirectory";
-      (TMVA::gConfig().GetIONames()).fWeightFileDir = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/1tau0lTausT/weight1Tau0L_v2";
+      (TMVA::gConfig().GetIONames()).fWeightFileDir = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/1tau0lTausT/weight1Tau0L_v2_corr";
 
    // Define the input variables that shall be used for the MVA training
    // note that you may also use variable expressions, such as: "3*var1/var2*abs(var3)"
@@ -206,7 +207,7 @@ void TMVAClassification( TString myMethodList = "" )
     factory->AddVariable( "bjetsL_invariantMass",                "bjetsL_invariantMass", "units", 'F' );
     factory->AddVariable( "jetsL_9pt",                "jetsL_9pt", "units", 'F' );
     factory->AddVariable( "jetsL_3pt",                "jetsL_3pt", "units", 'F' );
-    factory->AddVariable( "jetsL_4largestBscoreSum",                "jetsL_invariantMass", "units", 'F' );
+    factory->AddVariable( "jetsL_4largestBscoreSum",                "jetsL_4largestBscoreSum", "units", 'F' );
     factory->AddVariable( "bjetsL_3pt",                "bjetsL_3pt", "units", 'F' );
     factory->AddVariable( "bjetsM_HT",                "bjetsM_HT", "units", 'F' );
     factory->AddVariable( "bjetsM_invariantMass",                "bjetsM_invariantMass", "units", 'F' );
@@ -214,13 +215,16 @@ void TMVAClassification( TString myMethodList = "" )
     factory->AddVariable( "bjetsM_num",                "bjetsM_num", "units", 'F' );
     factory->AddVariable( "bjetsL_num",                "bjetsL_num", "units", 'F' );
     factory->AddVariable( "bjetsL_2pt",                "bjetsL_2pt", "units", 'F' );
-    factory->AddVariable( "bjetsL_4pt",                "jetsL_2pt", "units", 'F' );
+    // factory->AddVariable( "bjetsL_4pt",                "jetsL_2pt", "units", 'F' );
+    factory->AddVariable( "bjetsL_4pt",                "bjetsL_4pt", "units", 'F' );
     factory->AddVariable( "toptagger_transMass",                "toptagger_transMass", "units", 'F' );
     factory->AddVariable( "toptagger_HT",                "toptagger_HT", "units", 'F' );
     factory->AddVariable( "jetsL_10pt",                "jetsL_10pt", "units", 'F' );
     factory->AddVariable( "bjetsL_1pt",                "bjetsL_1pt", "units", 'F' );
-    factory->AddVariable( "jetsL_1pt",                "bjetsM_2pt", "units", 'F' );
-    factory->AddVariable( "bjetsT_HT",                "bjetsT_transMass", "units", 'F' );
+    // factory->AddVariable( "jetsL_1pt",                "bjetsM_2pt", "units", 'F' );
+    factory->AddVariable( "jetsL_1pt",                "jetsL_1pt", "units", 'F' );
+    // factory->AddVariable( "bjetsT_HT",                "bjetsT_transMass", "units", 'F' );
+    factory->AddVariable( "bjetsT_HT",                "bjetsT_HT", "units", 'F' );
     // factory->AddVariable( "",                "", "units", 'F' );
 
    // You can add so-called "Spectator variables", which are not used in the MVA training,
