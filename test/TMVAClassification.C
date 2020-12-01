@@ -164,7 +164,7 @@ void TMVAClassification( TString myMethodList = "" )
    // TString outfileName( "TMVA_study.root" );
    // TString outfileName( "TMVA_1Tau0L.root" );
    // TString outfileName( "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/1tau0lTausT/TMVA_1Tau0L_v2_correctVariableName.root" );
-   TString outfileName( "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/1tau0lTausT/TMVA_1Tau0L_v3_removeCorrelation.root" );
+   TString outfileName( "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/1tau0lTausT/TMVA_1Tau0L_v3_bjetsM3.root" );
    TFile* outputFile = TFile::Open( outfileName, "RECREATE" );
 
    // Create the factory object. Later you can choose the methods
@@ -185,7 +185,7 @@ void TMVAClassification( TString myMethodList = "" )
    //    (TMVA::gConfig().GetVariablePlotting()).fTimesRMS = 8.0;
       // (TMVA::gConfig().GetIONames()).fWeightFileDir = "myWeightDirectory";
       // (TMVA::gConfig().GetIONames()).fWeightFileDir = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/1tau0lTausT/weight1Tau0L_v2_corr";
-      (TMVA::gConfig().GetIONames()).fWeightFileDir = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/1tau0lTausT/weight1Tau0L_v3";
+      (TMVA::gConfig().GetIONames()).fWeightFileDir = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/1tau0lTausT/weight1Tau0L_v3_bjetsM3";
 
    // Define the input variables that shall be used for the MVA training
    // note that you may also use variable expressions, such as: "3*var1/var2*abs(var3)"
@@ -556,8 +556,10 @@ void TMVAClassification( TString myMethodList = "" )
    // factory->SetBackgroundWeightExpression( "weight" );//bg tree has a weight branch
 
    // Apply additional cuts on the signal and background samples (can be different)
-   TCut mycuts = "jetsL_number>=8 && bjetsM_num>=2 && tausT_number==1 && channel_1Tau0L_v2==1"; // for example: TCut mycuts = "abs(var1)<0.5 && abs(var2-0.5)<1";
-   TCut mycutb = "(jetsL_number>=8)&&(bjetsM_num>=2)&&(tausT_number==1)&&(channel_1Tau0L_v2==1)"; // for example: TCut mycutb = "abs(var1)<0.5";
+   // TCut mycuts = "jetsL_number>=8 && bjetsM_num>=2 && tausT_number==1 && channel_1Tau0L_v2==1"; // for example: TCut mycuts = "abs(var1)<0.5 && abs(var2-0.5)<1";
+   // TCut mycutb = "(jetsL_number>=8)&&(bjetsM_num>=2)&&(tausT_number==1)&&(channel_1Tau0L_v2==1)"; // for example: TCut mycutb = "abs(var1)<0.5";
+   TCut mycuts = "jetsL_number>=8 && bjetsM_num>=3 && tausT_number==1 && channel_1Tau0L_v2==1"; // for example: TCut mycuts = "abs(var1)<0.5 && abs(var2-0.5)<1";
+   TCut mycutb = "(jetsL_number>=8)&&(bjetsM_num>=3)&&(tausT_number==1)&&(channel_1Tau0L_v2==1)"; // for example: TCut mycutb = "abs(var1)<0.5";
 
    // Tell the factory how to use the training and testing events
    //
@@ -569,6 +571,8 @@ void TMVAClassification( TString myMethodList = "" )
    //                                         "NSigTrain=3000:NBkgTrain=3000:NSigTest=3000:NBkgTest=3000:SplitMode=Random:!V" );
    factory->PrepareTrainingAndTestTree( mycuts, mycutb,
                                         "nTrain_Signal=0:nTrain_Background=0:SplitMode=Random:NormMode=NumEvents:!V" );
+   // factory->PrepareTrainingAndTestTree( mycuts, mycutb,
+                                        // "nTrain_Signal=0:nTrain_Background=0:SplitMode=Random:NormMode=EqualNumEvents:!V" );
    //?how to prepare 70% and 30%?
    // ---- Book MVA methods
    //
