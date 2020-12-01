@@ -611,8 +611,8 @@ void StatDialogMVAEffs::PrintResults( const MethodInfo* info )
 // void mvaeffs( TString fin = "TMVA.root",
 // void mvaeffs( TString fin = "TMVA_1Tau0L.root",
 void mvaeffs( TString fin = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOutput/1tau0lTausT/TMVA_1Tau0L_v1.root", 
-              // Bool_t useTMVAStyle = kTRUE, TString formula="S/sqrt(S+B)" )
-              Bool_t useTMVAStyle = kTRUE, TString formula="S/sqrt(B)" )
+              Bool_t useTMVAStyle = kTRUE, TString formula="S/sqrt(S+B)" )
+              // Bool_t useTMVAStyle = kTRUE, TString formula="S/sqrt(B)" )
 {
    TMVAGlob::Initialize( useTMVAStyle );
 
