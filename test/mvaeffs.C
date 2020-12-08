@@ -616,9 +616,8 @@ void mvaeffs( TString fin = "/publicfs/cms/user/huahuil/TauOfTTTT/2016v1/TMVAOut
 {
    TMVAGlob::Initialize( useTMVAStyle );
 
-   // StatDialogMVAEffs* gGui = new StatDialogMVAEffs(gClient->GetRoot(), 1000, 1000);
-   StatDialogMVAEffs* gGui = new StatDialogMVAEffs(gClient->GetRoot(), 128089,135243 );
-   // StatDialogMVAEffs* gGui = new StatDialogMVAEffs(gClient->GetRoot());
+   StatDialogMVAEffs* gGui = new StatDialogMVAEffs(gClient->GetRoot(), 1000, 1000);
+   // StatDialogMVAEffs* gGui = new StatDialogMVAEffs(gClient->GetRoot(), 128089,135243 );
 
    TFile* file = TMVAGlob::OpenFile( fin );
    // gGui->SetNSignal();
